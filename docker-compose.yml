@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      context: ./MY_PLANT_LLM/MY_PLANT/backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - NARAKEET_API_KEY=${NARAKEET_API_KEY}
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always

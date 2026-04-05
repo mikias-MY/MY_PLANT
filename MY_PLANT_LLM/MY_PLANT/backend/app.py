@@ -9,7 +9,7 @@ from flask import Flask, request, jsonify, send_from_directory, Response
 from inference import predict_image
 from plant_validator import PlantValidator, NotAPlantError
 
-app = Flask(__name__, static_folder='../frontend/www', static_url_path='/')
+app = Flask(__name__, static_folder='../../../frontend/www', static_url_path='/')
 # Enable CORS to allow the frontend to interact with this API natively
 CORS(app)
 
@@ -33,6 +33,10 @@ def index():
 @app.route('/<path:path>')
 def serve_static(path):
     return send_from_directory(app.static_folder, path)
+
+@app.route('/health')
+def health_check():
+    return jsonify({'status': 'healthy', 'service': 'MY Plant Backend'}), 200
 
 @app.route('/predict', methods=['POST'])
 def predict():

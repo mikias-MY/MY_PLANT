@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    window.MY_PLANT_TTS_PROXY_URL = '/tts'; // Local backend proxy
+    window.MY_PLANT_TTS_PROXY_URL = '/api/tts'; // Proxied via Nginx
     
     const HISTORY_KEY = 'my_plant_scan_history_v1';
     const MAX_HISTORY = 25;
@@ -884,7 +884,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
 
-            const res = await fetch('http://localhost:5000/predict', {
+            const res = await fetch('/api/predict', {
                 method: 'POST',
                 body: formData
             });

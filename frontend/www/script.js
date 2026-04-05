@@ -187,7 +187,10 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getCameraVideoStream() {
         if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
             const isSecure = typeof window.isSecureContext !== 'undefined' ? window.isSecureContext : window.location.protocol === 'https:';
-            if (!isSecure && window.location.hostname !== '100.115.92.205' && window.location.hostname !== '100.115.92.205') {
+            const isLocalIP = /^(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.|100\.115\.)/.test(window.location.hostname);
+            const isCapacitor = window.location.protocol.includes('capacitor') || window.location.protocol.includes('http') && window.location.hostname === 'localhost';
+            
+            if (!isSecure && !isLocalIP && !isCapacitor) {
                 throw new Error(t('err_secure_context'));
             }
             throw new Error(t('err_no_camera_api'));
@@ -884,21 +887,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
 
-            const res = await fetch('http://localhost:5000/predict', {
-                method: 'POST',
-                body: formData
-            });
+            // Submit to Python Backend, but handle fallback to local TF.js if unreachable
+            let pb;
+            try {
+                const res = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
 
-            if (!res.ok) {
-                const errJson = await res.json().catch(() => ({}));
-                throw new Error(errJson.error || res.statusText);
-            }
-
-            const pb = await res.json();
-            
-            // Handle explicit REJECTED status from backend validation
-            if (pb.status === 'REJECTED') {
-                throw new Error(pb.error || t('err_no_plant'));
+                if (!res.ok) {
+                    const errJson = await res.json().catch(() => ({}));
+                    throw new Error(errJson.error || res.statusText);
+                }
+                pb = await res.json();
+                
+                if (pb.status === 'REJECTED') {
+                    throw new Error(pb.error || t('err_no_plant'));
+                }
+            } catch (backendError) {
+                console.warn('Backend unavailable, falling back to 100% Offline Local Model:', backendError);
+                
+                // --- 100% OFFLINE FALLBACK ---
+                try {
+                    const localResult = await predictWithTensorFlow();
+                    pb = {
+                        label: localResult.rawName,
+                        confidence: localResult.probability,
+                        status: "Local Offline"
+                    };
+                } catch (localError) {
+                    console.error('Both backend and local model failed:', localError);
+                    throw backendError; // Throw the original backend error if local also fails
+                }
             }
             
             let parsedConfidence = 0.95;
@@ -924,7 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     unsupported: false
                 }
             });
-            data.source = 'my_plant_offline_cnn';
+            data.source = pb.status === "Local Offline" ? 'tfjs_local_offline' : 'my_plant_offline_cnn';
             
             if (ptValue !== "Unknown") {
                 data.name = localizedCropName(ptValue);
