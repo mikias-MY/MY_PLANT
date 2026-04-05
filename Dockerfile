@@ -1,6 +1,6 @@
 # --- Stage 1: Build/Prepare Frontend ---
 FROM nginx:alpine as frontend-stage
-# Ensure we copy the correct frontend (the one with index.html in its root)
+# Use the comprehensive frontend directory
 COPY frontend /usr/share/nginx/html
 
 # --- Stage 2: Final Monolithic Image ---
@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     supervisor \
     libgl1 \
     libglib2.0-0 \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
@@ -28,13 +29,12 @@ COPY MY_PLANT_LLM/MY_PLANT/backend /app/backend
 COPY --from=frontend-stage /usr/share/nginx/html /usr/share/nginx/html
 
 # Copy configurations
-# Fix: Railway/Debian Nginx uses /etc/nginx/conf.d/default.conf for the default site
 COPY nginx_prod.conf /etc/nginx/conf.d/default.conf
-
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Healthcheck to help Railway monitor readiness
-HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+# Pings the Nginx proxy which in turn pings the Flask backend
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
   CMD curl -f http://localhost/health || exit 1
 
 # Expose port 80
