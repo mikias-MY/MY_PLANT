@@ -1,6 +1,6 @@
-# Deployment Guide: MY Plant on Railway.app
+# Deployment Guide: MY Plant on Railway.app (Monolith)
 
-This guide explains how to deploy the "MY Plant" application to Railway.app using the provided Docker configuration.
+This guide explains how to deploy the "MY Plant" application to Railway.app using the simplified monolithic Docker approach.
 
 ## Prerequisites
 - A [Railway.app](https://railway.app/) account.
@@ -14,26 +14,21 @@ This guide explains how to deploy the "MY Plant" application to Railway.app usin
 - Select **Deploy from GitHub repo**.
 - Choose your `MY_PLANT` repository.
 
-### 2. Configure Services
-Railway will detect the `docker-compose.yml` file and automatically create two services: `backend` and `frontend`.
+### 2. Automatic Detection
+Railway will detect the `Dockerfile` at the root of your repository. 
+- It will automatically build the image which includes **both** the Frontend (Nginx) and the Backend (Flask/Gunicorn).
+- It will expose the application on **port 80** by default.
 
-#### Backend Service
-- Go to the **backend** service settings.
-- Under **Variables**, add any necessary environment variables (e.g., `NARAKEET_API_KEY` if you have one).
-- Railway will automatically build the image using the `Dockerfile` in `./MY_PLANT_LLM/MY_PLANT/backend`.
+### 3. Add Environment Variables
+- If you use features like the AI Chat or TTS, go to the **Variables** tab in Railway.
+- Add `NARAKEET_API_KEY` or any other necessary keys.
 
-#### Frontend Service
-- Go to the **frontend** service settings.
-- Railway will build the image using the `Dockerfile` in `./frontend`.
-- Click on the **Networking** tab and click **Generate Domain** to get a public URL for your frontend.
-- **IMPORTANT**: Ensure the frontend service is exposed on port 80 (standard for HTTP).
-
-### 3. Verify Deployment
-- Once the deployment is complete, visit the generated URL for the frontend.
-- Since Railway provides HTTPS automatically, your camera permissions should work out of the box!
-- The frontend will automatically proxy `/api` requests to the `backend` service.
+### 4. Verify Deployment
+- Railway will provide a public HTTPS URL (e.g., `my-plant-production.up.railway.app`).
+- Open this URL in your browser.
+- **Camera Permissions**: Since Railway provides automatic SSL (HTTPS), your camera will work instantly!
 
 ## Why this works
-- **Nginx Reverse Proxy**: The frontend container uses Nginx to serve static files and proxy API calls. This avoids CORS issues because the browser sees everything coming from the same domain.
-- **Docker Compose**: Railway uses your `docker-compose.yml` to understand the relationship between your services.
-- **HTTPS**: Railway handles SSL termination, providing the secure context required for WebRTC (camera access).
+- **Monolith Approach**: By putting the frontend and backend in one container, we bypass all "Build Plan" errors and complex inter-service networking.
+- **Internal Proxying**: Nginx (on port 80) handles the static files and proxies `/api` calls directly to the local Flask server (on port 5000) inside the same container.
+- **Production Grade**: Uses `Gunicorn` for the API and `Nginx` for the static assets, managed by `Supervisor`.
