@@ -1,0 +1,136 @@
+{
+  "apple_scab": {
+    "name": "Apple Scab",
+    "host_plant": "Apple (Malus domestica) and crabapple trees.",
+    "leaf_diagnosis_truth": "The truth is in the leaf texture. Look for **olive-green to black, velvety spots** with an irregular, feathery edge. These spots are not just cosmetic; they cause the leaf tissue to pucker and distort. The most telling sign is **premature leaf drop** in early summer, which weakens the tree for the next year's bloom.",
+    "pathogen_type": "Fungus (Venturia inaequalis)",
+    "life_cycle_truth": "This fungus overwinters in the fallen leaves from the previous year. Spring rains release spores that infect new leaves as they emerge. For infection to occur, leaves must remain wet for several hours.",
+    "prevention_truth": "The single most effective action is **sanitation**: rake and remove all fallen leaves in autumn. This breaks the disease cycle. Next, prune to open the canopy for faster drying.",
+    "solution_truth": "For active infection, fungicides are a protective, not curative, measure. Apply **sulfur, lime-sulfur, or copper-based fungicides** from bud break through petal fall, especially during wet weather, to protect new growth before the fungus can penetrate."
+  },
+  "tomato_late_blight": {
+    "name": "Tomato Late Blight",
+    "host_plant": "Tomato (Solanum lycopersicum) and potato.",
+    "leaf_diagnosis_truth": "This is the plant disease equivalent of a wildfire. Do not hesitate. The signature is **large, irregular, water-soaked, gray-green lesions** that rapidly turn brown and papery. In high humidity, a **distinct white, fuzzy mold** appears on the *underside* of the leaf along the edge of the lesion. It spreads from the bottom of the plant upward and can kill a plant in days.",
+    "pathogen_type": "Oomycete (Phytophthora infestans) - not a true fungus.",
+    "life_cycle_truth": "This pathogen is airborne and water-dispersed. Spores travel for miles on wind and rain. It thrives in cool, wet conditions. The same pathogen caused the Irish Potato Famine.",
+    "prevention_truth": "Resistant varieties are your best defense. **Avoid overhead watering** at all costs, as splashing water is a primary infection method. Inspect plants daily during humid weather.",
+    "solution_truth": "**Immediate removal and destruction** (do not compost) of infected plants is the only way to protect neighboring gardens. Copper-based fungicides can offer some protection if applied *before* infection, but they are often ineffective once the blight is established."
+  },
+  "grape_black_rot": {
+    "name": "Grape Black Rot",
+    "host_plant": "Grapevine (Vitis spp.).",
+    "leaf_diagnosis_truth": "Look for small, **circular tan spots with a dark brown or black border** on leaves. The most critical and distinguishing symptom is on the fruit: berries become hard, black, shrivelled, and look like **'mummified' raisins** that remain attached to the cluster.",
+    "pathogen_type": "Fungus (Guignardia bidwellii)",
+    "life_cycle_truth": "The fungus overwinters in those mummified berries on the vine or ground. Spring rains cause them to release spores that infect new leaves, shoots, and eventually the fruit clusters.",
+    "prevention_truth": "Pruning for excellent airflow is key. The most crucial step is **removing and destroying all mummified berries** from the vine and the ground during winter pruning.",
+    "solution_truth": "Fungicide timing is critical. Protective fungicides (like myclobutanil or captan) must be applied from **early bloom through 4-5 weeks after bloom** to protect the developing fruit clusters."
+  },
+  "corn_common_rust": {
+    "name": "Corn Common Rust",
+    "host_plant": "Corn (Zea mays).",
+    "leaf_diagnosis_truth": "The truth is on the leaf surface: **small, oval, reddish-brown pustules** that feel powdery to the touch. These pustules appear on both the upper and lower leaf surfaces. Unlike Southern Rust, the pustules are more scattered and do not densely cover the leaf.",
+    "pathogen_type": "Fungus (Puccinia sorghi)",
+    "life_cycle_truth": "This fungus does not overwinter in most northern climates. Spores are blown north each year from southern regions. It thrives in moderate temperatures (60-75°F) and high humidity.",
+    "prevention_truth": "The most practical and effective prevention is to **plant resistant corn hybrids**. Many commercial varieties have excellent resistance to common rust.",
+    "solution_truth": "For home gardeners, fungicides are rarely economical or necessary, as the disease typically appears late in the season after yield is already determined. For seed corn, foliar fungicides (e.g., strobilurins) are applied when rust is detected before tasseling."
+  },
+  "potato_early_blight": {
+    "name": "Potato Early Blight",
+    "host_plant": "Potato (Solanum tuberosum) and tomato.",
+    "leaf_diagnosis_truth": "Identify by the **'target spot'** pattern: dark, concentric rings within a brown, angular lesion. These spots first appear on the **lower, older leaves**. The surrounding leaf tissue often turns yellow. It is a slower, more insidious disease than late blight.",
+    "pathogen_type": "Fungus (Alternaria solani)",
+    "life_cycle_truth": "The fungus survives in infected plant debris and soil. It is a stress-related disease, often attacking plants that are weakened by poor nutrition, drought, or insect damage. Spores are splashed onto lower leaves by rain or irrigation.",
+    "prevention_truth": "Crop rotation (3-4 years) is essential. Maintain plant vigor with consistent watering and proper fertilization, especially phosphorus and potassium, as stressed plants are highly susceptible.",
+    "solution_truth": "Remove infected lower leaves as soon as they appear. If the disease spreads rapidly, copper-based or chlorothalonil fungicides can protect healthy upper foliage, but they must be applied early, before the disease is widespread."
+  },
+  "strawberry_leaf_spot": {
+    "name": "Strawberry Leaf Spot",
+    "host_plant": "Strawberry (Fragaria × ananassa).",
+    "leaf_diagnosis_truth": "The classic sign is **small, circular purple spots** that develop a **gray or tan center**, creating a 'bird's eye' appearance. Heavy infection can cause leaves to turn purple, dry up, and die. The spots are usually more numerous on older leaves.",
+    "pathogen_type": "Fungus (Mycosphaerella fragariae)",
+    "life_cycle_truth": "This common fungus thrives in wet, crowded conditions. It spreads via splashing water and can rapidly defoliate plants in a matted row system, reducing fruit yield and quality.",
+    "prevention_truth": "**Plant resistant varieties** (e.g., 'Jewel', 'Lateglow') and ensure good spacing for airflow. Avoid overhead irrigation in the late afternoon or evening to allow leaves to dry before nightfall.",
+    "solution_truth": "Prune and remove heavily infected older leaves to improve air circulation. For severe outbreaks, fungicides containing **captan or thiram** can be applied after renovation (mowing) of the strawberry bed."
+  },
+  "peach_bacterial_spot": {
+    "name": "Peach Bacterial Spot",
+    "host_plant": "Peach (Prunus persica) and other stone fruits (nectarine, plum).",
+    "leaf_diagnosis_truth": "Look for **small, angular, water-soaked spots** that turn purple, brown, or black. As the leaf tissue dies, the centers of the spots often fall out, creating a **'shot-hole'** appearance. On fruit, it causes small, deep pits and cracks.",
+    "pathogen_type": "Bacterium (Xanthomonas pruni)",
+    "life_cycle_truth": "This is a bacterial disease that thrives in warm, humid, and wet conditions. It overwinters in infected twigs and buds. Splashing rain and wind are the primary vectors for spread. Over-fertilization with nitrogen creates succulent, susceptible tissue.",
+    "prevention_truth": "The most reliable long-term strategy is to **plant resistant peach cultivars**. Avoid overhead irrigation and excessive nitrogen fertilization, especially in spring.",
+    "solution_truth": "Management is challenging. Copper-based bactericides applied in the fall after leaf drop and in the spring at bud swell can help reduce inoculum levels. There is no cure for infected tissue; focus is on protecting new growth."
+  },
+  "mango_anthracnose": {
+    "name": "Mango Anthracnose",
+    "host_plant": "Mango (Mangifera indica).",
+    "leaf_diagnosis_truth": "The truth reveals itself in young, tender leaves. Look for **dark, sunken, black lesions** that often start at the leaf tip or margin. As the leaf matures, the spots may crack. On fruit, it causes characteristic black, sunken, 'tear-streak' lesions that lead to rot.",
+    "pathogen_type": "Fungus (Colletotrichum gloeosporioides)",
+    "life_cycle_truth": "This fungus is a latent pathogen, meaning it infects young, susceptible tissue (leaves, flowers, fruit) but remains dormant until the fruit ripens or the plant is stressed. Wet, humid flowering periods are the highest risk time.",
+    "prevention_truth": "Prune to create an open, airy canopy. Remove and destroy infected twigs and fallen leaves. Avoid overhead irrigation during flowering and fruit development.",
+    "solution_truth": "A multi-pronged approach is needed: 1) **Cultural**: Prune infected twigs. 2) **Biological**: Apply neem oil or Bacillus subtilis for early management. 3) **Chemical**: Copper-based fungicides are most effective when applied protectively during the flowering stage and fruit set."
+  },
+  "avocado_phytophthora": {
+    "name": "Avocado Root Rot",
+    "host_plant": "Avocado (Persea americana).",
+    "leaf_diagnosis_truth": "The truth is not on the leaf, but in the *story the leaf tells*. You will see a general **decline, with small, pale green, and often wilted leaves**. Leaf edges may scorch. The tree looks chronically stressed and produces fewer, smaller fruits. This is a root problem with leaf symptoms.",
+    "pathogen_type": "Water-mold (Phytophthora cinnamomi) - an Oomycete.",
+    "life_cycle_truth": "This is the most devastating avocado disease worldwide. The pathogen attacks the roots, destroying the fine feeder roots. Without roots to take up water, the tree collapses from the top down. It thrives in poorly drained, wet soils.",
+    "prevention_truth": "**Drainage is everything.** Plant in raised mounds or beds. Never overwater. Use certified disease-free nursery stock and rootstocks known for tolerance (e.g., 'Duke 7').",
+    "solution_truth": "1. **Immediate**: Correct water drainage to stop creating a favorable environment. 2. **Treatment**: Apply phosphonate (phosphorous acid) trunk injections, which are highly effective at boosting the tree's natural defenses. 3. **Long-term**: Mulch heavily with organic matter to improve soil biology and root health."
+  },
+  "lemon_citrus_canker": {
+    "name": "Citrus Canker",
+    "host_plant": "Citrus (Citrus spp.), especially lemon, lime, and grapefruit.",
+    "leaf_diagnosis_truth": "The truth is unmistakable: **raised, corky, scab-like lesions** with an **oily, water-soaked margin** surrounded by a **conspicuous yellow halo**. The lesions are often circular and can appear on leaves, fruit, and stems. They feel rough to the touch. This is *not* the asymmetrical mottling of Huanglongbing (HLB).",
+    "pathogen_type": "Bacterium (Xanthomonas citri)",
+    "life_cycle_truth": "This aggressive bacterium enters the plant through natural openings (stomata) or wounds. It is spread primarily by wind-driven rain, but also by contaminated pruning tools, clothing, and citrus leaf miners (whose damage creates entry points).",
+    "prevention_truth": "Use **windbreaks** to reduce wind-driven rain. **Disinfect tools** frequently (bleach solution) between trees. Control citrus leaf miner to prevent wound sites for infection.",
+    "solution_truth": "Management is a constant effort: 1. **Sanitation**: Remove and destroy infected leaves and fruit. 2. **Protection**: Apply copper-based bactericides, especially after storms and during active growth. 3. **Monitoring**: Conduct weekly inspections for new lesions and leaf miner trails."
+  },
+  "coffee_rust": {
+    "name": "Coffee Leaf Rust",
+    "host_plant": "Coffee (Coffea arabica).",
+    "leaf_diagnosis_truth": "Look for **yellowish-orange, powdery pustules** on the undersides of leaves. Corresponding chlorotic (pale yellow) spots appear on the upper surface. This is the most significant disease of coffee globally, causing severe defoliation and yield loss.",
+    "pathogen_type": "Fungus (Hemileia vastatrix)",
+    "life_cycle_truth": "The fungus requires liquid water to germinate and infect. It thrives in humid environments. Spores are dispersed primarily by wind and rain splash.",
+    "prevention_truth": "Plant resistant varieties (e.g., 'Catimor', 'Sarchimor'). Prune trees to ensure good air circulation and allow sunlight to reach the lower branches.",
+    "solution_truth": "1. **Pruning**: Remove heavily infected branches to reduce inoculum. 2. **Chemical**: Apply copper-based fungicides before the onset of the rainy season. 3. **Nutritional**: Ensure the plant has balanced nutrition (especially potassium) to help it tolerate the stress."
+  },
+  "coffee_phoma": {
+    "name": "Coffee Phoma / Dieback",
+    "host_plant": "Coffee (Coffea spp.).",
+    "leaf_diagnosis_truth": "Identified by **irregular, dark brown to black necrotic spots** usually starting at the leaf margins. These spots can merge, causing the leaf to dry and fall. It also affects twigs, leading to 'dieback' where the branch dies from the tip inward.",
+    "pathogen_type": "Fungus (Phoma spp. / Colletotrichum spp.)",
+    "life_cycle_truth": "Favored by high humidity and cool temperatures, often at higher altitudes. Wounds from frost or wind increase susceptibility.",
+    "prevention_truth": "Use windbreaks to minimize mechanical damage. Maintain healthy soil through mulching and appropriate fertilization.",
+    "solution_truth": "1. **Sanitation**: Prune and burn infected twigs and branches. 2. **Fungicide**: Use protective fungicides during periods of high humidity and cool weather."
+  },
+  "tena_adam_healthy": {
+    "name": "Tena'adam (ጤና አዳም)",
+    "host_plant": "Fringed Rue (Ruta chalepensis).",
+    "leaf_diagnosis_truth": "Identify by the **distinctive bluish-green, deeply divided, bi-pinnate leaves** with deeply incised (feathery) segments and a slightly waxy texture. Clusters are small and yellow-green. The seed pods are characteristic **lobed capsules**. It is a perennial shrub native to the Mediterranean but deeply integrated into Ethiopian medicinal and culinary culture.",
+    "pathogen_type": "N/A (Healthy Scan)",
+    "life_cycle_truth": "Tena'adam is a perennial shrub. It thrives in well-drained, sunny locations.",
+    "prevention_truth": "Maintain soil pH near 7.0 (neutral). Avoid over-fertilization with nitrogen, which can dilute the concentration of medicinal essential oils like rutin.",
+    "solution_truth": "Continue providing consistent sunlight and moderate water. If used for culinary purposes (coffee flavoring), harvest only the berries or small leaf tips."
+  },
+  "erka_healthy": {
+      "name": "Erka (አርካ)",
+      "host_plant": "Calpurnia aurea.",
+      "leaf_diagnosis_truth": "Identify by **fresh light-green drooping pinnate leaves** (typically 5–15 pairs of oblong leaflets). The most distinguishing feature is the **bright yellow pea-like flowers** in beautiful hanging clusters. It is an indigenous tree to Ethiopia and other parts of Africa.",
+      "pathogen_type": "N/A (Healthy Scan)",
+      "life_cycle_truth": "A fast-growing tree that is often used in traditional medicine and as a shade tree.",
+      "prevention_truth": "Protect young plants from grazing animals. Requires moderate water and full sun.",
+      "solution_truth": "Prune to manage size and shape. Use for traditional medicinal purposes as needed."
+  },
+  "healthy": {
+    "name": "Healthy Plant",
+    "leaf_diagnosis_truth": "Verdict: No disease indicators found. The leaf shows uniform color, intact margins, and no signs of lesions, pustules, or abnormal spotting.",
+    "pathogen_type": "N/A",
+    "life_cycle_truth": "N/A",
+    "prevention_truth": "Continue best practices: consistent watering (at the base), balanced fertilization based on soil tests, and regular monitoring for early pest detection.",
+    "solution_truth": "Maintain your current care routine. Consider adding a layer of organic mulch to regulate soil moisture and temperature, further supporting plant health."
+  }
+}

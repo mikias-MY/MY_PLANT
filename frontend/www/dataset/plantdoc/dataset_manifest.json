@@ -1,0 +1,29 @@
+{
+  "name": "PlantDoc",
+  "full_name": "PlantDoc: A Dataset for Visual Plant Disease Detection",
+  "authors": "Singh, Jain, Jain, Kayal, Kumawat, Batra et al.",
+  "year": 2020,
+  "license": "CC BY 4.0",
+  "doi": "10.1145/3371158.3371196",
+  "paper_url": "https://arxiv.org/abs/1911.10317",
+  "upstream_repo": "https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset",
+  "huggingface_parquet": "https://huggingface.co/datasets/agyaatcoder/PlantDoc",
+  "description": "Real-world plant leaf images with bounding-box labels, collected for farm-style conditions. Used here as the reference taxonomy and agronomic knowledge base; the in-browser model remains PlantVillage-trained until you export a PlantDoc-trained TF.js model (see dataset/tools).",
+  "splits": {
+    "train": { "images": 2251, "note": "Dataset Ninja / Supervisely format" },
+    "test": { "images": 231 }
+  },
+  "totals": {
+    "images_reported_paper": 2598,
+    "images_dataset_ninja": 2482,
+    "annotated_objects": 8595,
+    "leaf_classes": 29,
+    "plant_species": 13
+  },
+  "tasks": ["object_detection", "classification_derived"],
+  "notes": [
+    "Hugging Face mirror stores detection annotations (image + objects.bbox + objects.category).",
+    "Classification-style folder releases (e.g. Kaggle) align closely with the same disease names.",
+    "Classes with fewer than ~50 images were dropped in the original curation."
+  ]
+}

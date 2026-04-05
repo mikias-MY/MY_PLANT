@@ -1,0 +1,9 @@
+{
+  "model_id": "plantvillage_mobilenet_softmax_38",
+  "trained_on": "PlantVillage-style labels (38 classes)",
+  "input_size": 224,
+  "normalize": "divide_by_255",
+  "resize": "nearest_neighbor_224",
+  "knowledge_base": "PlantDoc reference (29 leaf classes) via dataset/plantdoc/",
+  "note": "Inference uses the shipped TF.js CNN. PlantDoc JSON enriches explanations and UI; training on full PlantDoc is optional (see dataset/tools)."
+}

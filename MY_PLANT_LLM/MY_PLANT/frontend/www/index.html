@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MY Plant - Botanical Diagnostics</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Using a modern font for premium aesthetics -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>MY Plant</h1>
+            <p>Botanical Diagnostics UI</p>
+        </header>
+
+        <main>
+            <!-- Step 1: Upload or Capture Image -->
+            <section class="upload-section" id="uploadSection">
+                <div class="input-group">
+                    <label for="plantType">Select Plant Type:</label>
+                    <select id="plantType" name="plantType">
+                        <option value="Unknown">Unknown (Auto-detect)</option>
+                        <option value="Coffee">Coffee (Focus Mode)</option>
+                        <option value="Tomato">Tomato</option>
+                        <option value="Apple">Apple</option>
+                        <option value="Potato">Potato</option>
+                        <option value="Bell Pepper">Bell Pepper</option>
+                        <option value="Tena'adam">Tena'adam (Ruta chalepensis)</option>
+                    </select>
+                </div>
+
+                <div class="image-uploader" id="dropZone">
+                    <div class="upload-content">
+                        <span class="upload-icon">📸</span>
+                        <p>Tap here to take a photo or upload an existing image</p>
+                    </div>
+                    <!-- capture="environment" encourages the mobile device to open the back camera directly -->
+                    <input type="file" id="imageInput" accept="image/*" capture="environment">
+                </div>
+
+                <!-- Step 2: Image Preview and Confirm -->
+                <div class="preview-container hidden" id="previewContainer">
+                    <img id="imagePreview" src="" alt="Selected Leaf">
+                    <button class="btn btn-primary" id="analyzeBtn">Analyze Plant Health</button>
+                    <button class="btn btn-secondary" id="retakeBtn">Retake Photo</button>
+                </div>
+            </section>
+
+            <!-- Loading State -->
+            <section class="results-section hidden" id="resultsSection">
+                <div class="loader" id="loader">
+                    <div class="spinner"></div>
+                    <p>Analyzing botanical data...</p>
+                </div>
+
+                <!-- Step 3: Display Detailed Results -->
+                <div class="result-card hidden" id="resultCard">
+                    <div class="status-badge" id="statusBadge">Healthy</div>
+                    <h2 id="diseaseLabel">Unknown</h2>
+                    <p class="confidence">Confidence Score: <span id="confidenceScore">0%</span></p>
+                    
+                    <div class="details-box">
+                        <h3>Symptoms observed</h3>
+                        <ul id="symptomsList"></ul>
+                        
+                        <h3>Possible Causes</h3>
+                        <ul id="causesList"></ul>
+                        
+                        <h3>Treatment & Management</h3>
+                        <ul id="treatmentList"></ul>
+                    </div>
+
+                    <button class="btn btn-primary" id="scanAgainBtn">Scan Another Plant</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script that hooks up the UI to the backend -->
+    <script src="app.js"></script>
+</body>
+</html>

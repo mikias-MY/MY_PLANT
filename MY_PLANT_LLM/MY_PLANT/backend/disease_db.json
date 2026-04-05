@@ -1,0 +1,204 @@
+{
+  "Healthy": {
+    "en": {
+      "symptoms": ["Vibrant green leaves", "No spots, yellowing, or wilting observed."],
+      "causes": ["Good environmental conditions", "Adequate nutrients"],
+      "management": ["Maintain current watering and light schedule."],
+      "treatment": ["None required."]
+    },
+    "am": {
+      "symptoms": ["ጤናማ አረንጓዴ ቅጠሎች", "ምንም ዓይነት ነጠብጣብ፣ መገርጣት ወይም የመጠውለግ ምልክት የለም።"],
+      "causes": ["ጥሩ የአየር ሁኔታ", "በቂ ንጥረ-ምግብ"],
+      "management": ["የአሁኑን የውሃ እና የብርሃን አቅርቦት ይቀጥሉ።"],
+      "treatment": ["ምንም ሕክምና አያስፈልገውም።"]
+    },
+    "om": {
+      "symptoms": ["Baala magariisa fayyaa", "Mallattoo dhibee, keelloo ykn coolliguu hin qabu."],
+      "causes": ["Haala qilleensa gaarii", "Nyaata biqiltuu gahaa"],
+      "management": ["Sagantaa bishaan kennuu fi ifa aduu itti fufi."],
+      "treatment": ["Tajaajilli barbachisaa miti."]
+    }
+  },
+  "Tomato___Bacterial_spot": {
+    "en": {
+      "symptoms": ["Small, water-soaked, greasy-looking spots on leaves.", "Spots become angular and dark brown to black."],
+      "causes": ["Xanthomonas bacteria", "High humidity and warm temperatures."],
+      "management": ["Avoid overhead watering.", "Remove and destroy infected plant parts.", "Practice crop rotation."],
+      "treatment": ["Use copper-based bactericides early in the disease cycle."]
+    },
+    "am": {
+      "symptoms": ["በቅጠሎች ላይ ትናንሽ፣ የውሃ ንኪኪ ያላቸው የሚመስሉ ቅባታማ ነጠብጣቦች።", "ነጠብጣቦቹ ማዕዘን ቅርጽ ያላቸው እና ጥቁር ቡኒ ወይም ጥቁር ይሆናሉ።"],
+      "causes": ["የባክቴሪያ በሽታ (Xanthomonas)", "ከፍተኛ እርጥበት እና ሞቃት የአየር ሁኔታ።"],
+      "management": ["ቅጠሎች ላይ ውሃ ማፍሰስ ያስወግዱ።", "የተጎዱ ክፍሎችን ነቅለው ያቃጥሉ።", "የሰብል ፈራቃን ይለማመዱ።"],
+      "treatment": ["በሽታው ገና ሲጀምር የኮፐር (copper-based) መድሃኒቶችን ይጠቀሙ።"]
+    },
+    "om": {
+      "symptoms": ["Baala irratti mallattoo xixinnoo, bishaan qabate fakkaatu mul'ata.", "Mallattoon sun gara kofee gurraachatti jijjiirama."],
+      "causes": ["Baakteriyaa Xanthomonas", "Ho'a fi jiidha ol'aanaa."],
+      "management": ["Baala irratti bishaan facaasuu dhiisi.", "Qaama miidhame kutii balleessi.", "Sanyii dabareen dhaabi."],
+      "treatment": ["Qoricha kopparii yeroo dhibeen jalqabutti fayyadami."]
+    }
+  },
+  "Apple___Apple_scab": {
+    "en": {
+      "symptoms": ["Olive-green to black velvety spots on leaves.", "Leaves may yellow and drop prematurely."],
+      "causes": ["Venturia inaequalis fungus", "Cool, wet spring weather."],
+      "management": ["Rake and destroy fallen leaves in autumn.", "Prune trees to improve air circulation.", "Plant scab-resistant varieties."],
+      "treatment": ["Apply protective fungicides before rain or dew during the growing season."]
+    },
+    "am": {
+      "symptoms": ["በቅጠሎች ላይ የወይራ አረንጓዴ ወይም ጥቁር ለስላሳ ነጠብጣቦች።", "ቅጠሎች ቢጫ ሊሆኑ እና ያለጊዜው ሊረግፉ ይችላሉ።"],
+      "causes": ["የፈንጋይ በሽታ (Venturia inaequalis)", "ቀዝቃዛ እና ዝናባማ የአርፋሳ የአየር ሁኔታ።"],
+      "management": ["የረገፉ ቅጠሎችን በማጽዳት ያቃጥሉ።", "የአየር ዝውውር እንዲኖር ዛፉን ይከርክሙ።", "በሽታውን የሚቋቋሙ ዝርያዎችን ይትከሉ።"],
+      "treatment": ["በእድገት ወቅት ዝናብ ከመታየቱ በፊት የመከላከያ የፈንጋይ መድሃኒቶችን ይርጩ።"]
+    },
+    "om": {
+      "symptoms": ["Baala irratti mallattoo lallaafaa halluu ejersaa ykn gurraacha.", "Baalli keelloo ta'ee harca'uu danda'a."],
+      "causes": ["Fangasii Venturia inaequalis", "Qilleensa qabbanaa'aa fi jiidhaa."],
+      "management": ["Baala harca'e qulqulleessi.", "Qilleensaaf damee mishi.", "Sanyii dhibee danda'an dhaabi."],
+      "treatment": ["Osoo roobni hin dhufin qoricha fangasii facaasi."]
+    }
+  },
+  "Potato___Late_blight": {
+    "en": {
+      "symptoms": ["Water-soaked spots on leaves that turn dark brown or black.", "White, fuzzy mold may appear on the undersides of leaves in wet weather."],
+      "causes": ["Phytophthora infestans (water mold).", "Cool, wet conditions."],
+      "management": ["Use certified disease-free seed potatoes.", "Avoid overhead irrigation.", "Ensure good soil drainage."],
+      "treatment": ["Apply protective fungicides regularly. Destroy infected plants immediately."]
+    },
+    "am": {
+      "symptoms": ["በቅጠሎች ላይ የውሃ ንኪኪ ያላቸው የሚመስሉ እና ወደ ጥቁር ቡኒ የሚቀየሩ ነጠብጣቦች።", "በእርጥበት ወቅት በቅጠሉ ጀርባ ላይ ነጭ ሻጋታ ሊታይ ይችላል።"],
+      "causes": ["የውሃ ሻጋታ (Phytophthora infestans)", "ቀዝቃዛ እና እርጥብ ሁኔታዎች።"],
+      "management": ["ንጹህ የድንች ዘር ይጠቀሙ።", "ቅጠሎች ላይ ውሃ አያፍሱ።", "የአፈር የውሃ ፍሳሽን ያረጋግጡ።"],
+      "treatment": ["የመከላከያ መድሃኒቶችን በየጊዜው ይርጩ። የታመሙ ተክሎችን በፍጥነት ያጥፉ።"]
+    },
+    "om": {
+      "symptoms": ["Baala irratti mallattoo bishaan qabate fakkaatu kan gara gurraachatti jijjiiramu.", "Jala baalaatiin bifa adii agarsiisuu danda'a."],
+      "causes": ["Phytophthora infestans (water mold)", "Qilleensa qabbana fi jiidha."],
+      "management": ["Sanyii qulqulluu fayyadami.", "Bishaan gubbaa facaasuu dhiisi.", "Dhangala'aa bishaan lafaa eegi."],
+      "treatment": ["Qoricha fangasii yeroon facaasi. Biqiltuu dhukkubame balleessi."]
+    }
+  },
+  "coffee_dataset___leaf_rust": {
+    "en": {
+      "symptoms": ["Powdery orange spots (urediniospores) initially on the lower leaf surface, eventually visible as chlorotic spots on the upper surface.", "Heavy infection leads to premature leaf drop, reducing photosynthetic capacity and killing branches (dieback).", "Scattered orange dust can be wiped off with a finger—a classic sign of sporulation."],
+      "causes": ["Hemileia vastatrix fungus.", "Optimum growth at 21-25°C with free water from rain or heavy dew for at least 6-12 hours."],
+      "management": ["Improve airflow by pruning unnecessary shade tree branches and thinning coffee canopy.", "Plant resistant varieties like Ruiru 11 or Batian if available.", "Regularly scout for the first signs of orange powder during the rainy season."],
+      "treatment": ["Preventative: Apply copper-based fungicides (Bordeaux mixture) before the onset of rains to protect new foliage.", "Curative: Use systemic fungicides like Triazoles (e.g., Cyproconazole) if infection exceeds 5-10% of the canopy.", "Ensure 100% spray coverage, especially on the undersides of leaves where fungi reside."]
+    },
+    "am": {
+      "symptoms": [
+        "በቅጠሉ የጀርባ በኩል ብርቱካናማ ወይም ቢጫ ዱቄት መሰል ነጠብጣቦች (urediniospores) በብዛት ይታያሉ፤ እነዚህም የፈንጋዩ መራቢያዎች ናቸው።",
+        "በቅጠሉ የላይኛው ገጽ ላይ ደግሞ ነጠብጣቦቹ ወደ ቢጫነት የተቀየሩ ምልክቶች (chlorotic spots) ሆነው ይወጣሉ።",
+        "በሽታው ሲባባስ ቅጠሎች ያለጊዜያቸው ይረግፋሉ (defoliation)፤ ይህም ተክሉ ምግብ እንዳያዘጋጅ በማድረግ ቅርንጫፎች እንዲደርቁና ምርት እንዲቀንስ ያደርጋል።",
+        "በጣት ሲታሹ የሚለቁ ብርቱካናማ አቧራ መሰል ምልክቶች የበሽታው ዋነኛ መለያ ናቸው።"
+      ],
+      "causes": [
+        "ሄሚሊያ ቫስታትሪክስ (Hemileia vastatrix) የተባለ የፈንጋይ ዝርያ ዋናው መንስኤ ነው።",
+        "ከፍተኛ እርጥበት፣ ከ6-12 ሰዓታት የሚቆይ የቅጠል እርጥበት (ከዝናብ ወይም ከጠል የሚገኝ) እና ከ21-25 ዲግሪ ሴንቲግሬድ ያለ የሙቀት መጠን ለፈንጋዩ መራባት በጣም ምቹ ናቸው።"
+      ],
+      "management": [
+        "የአየር ዝውውርንና የፀሐይ ብርሃን ንክኪን ለመጨመር የቡናውን ዛፍና ጥላ የሚሰጡ ዛፎችን ቅርንጫፎች በሥርዓት ይከርክሙ።",
+        "በሽታውን የመቋቋም አቅም ያላቸውን እንደ ሩይሩ 11 (Ruiru 11) ወይም ባቲያን (Batian) ያሉ ዝርያዎችን መጠቀም ይመከራል።",
+        "በዝናብ ወቅት የመጀመሪያዎቹ ምልክቶች መታየታቸውን በየሳምንቱ ማረጋገጥ (Scouting) አስፈላጊ ነው።"
+      ],
+      "treatment": [
+        "ቅድመ መከላከል፦ ዝናብ ከመጀመሩ በፊት የኮፐር መድኃኒቶችን (Bordeaux mixture) በመርጨት አዳዲስ ቅጠሎችን ከበሽታው ይከላከሉ።",
+        "በሽታው ከተስፋፋ፦ የበሽታው ስርጭት ከ5-10% በላይ ከሆነ ትራያዞል (Triazoles) የሚባሉ ሥር-ሰደድ (systemic) መድኃኒቶችን ይጠቀሙ።",
+        "መድኃኒቱን ሲረጩ የቅጠሉን የጀርባ ክፍል ጨምሮ ሙሉ በሙሉ መድረሱን ያረጋግጡ፤ ምክንያቱም ፈንጋዩ የሚደበቀው ከቅጠሉ ጀርባ ነው።"
+      ]
+    },
+    "om": {
+      "symptoms": [
+        "Jala baalaa irratti mallattoo daakuu halluu burtukaanaa (urediniospores) baay'inaan mul'ata; kunis bakka fangasiin sun itti wal horu dha.",
+        "Fuula baalaa irratti immoo mallattoon sun gara halluu keellootti jijjiiramee baala irratti mul'ata.",
+        "Dhibeen kun yoo hammaate baalli otoo yeroon isaa hin gahin harca'a; kunis biqiltuun nyaata akka hin qopheessine gochuun dameen akka gogu taasisa.",
+        "Yoo qubaan haaxawwan 'dust' burtukaanaan sun quba irratti hafa; kunis mallattoo addaa dhibee kanaa ti."
+      ],
+      "causes": [
+        "Fangasii Hemileia vastatrix jedhamu madda dhibee kanaa ti.",
+        "Jiidha ol'aanaa, bishaan baala irratti sa'aatii 6-12f turu (rooba ykn fixeensa irraa) fi ho'a digrii 21-25 ta'uuf haala mijataa uuma."
+      ],
+      "management": [
+        "Qilleensaa fi ifa aduu argachuuf damee bunaa fi muka gaaddisa kennan sirriitti mishi.",
+        "Sanyii dhibee kana danda'an akka Ruiru 11 ykn Batian fayyadamuun filatamaa dha.",
+        "Yeroo roobaa mallattoo jalqabaa sakatta'uun (scouting) baay'ee barbaachisaa dha."
+      ],
+      "treatment": [
+        "Ittisa duraa: Osoo roobni hin jalqabin qoricha kopparii (Bordeaux mixture) facaasudhaan baala haaraa eegi.",
+        "Dhibeen yoo baballate: Tatamsa'inni dhibee kanaa 5-10% yoo caale qoricha 'systemic' kan akka Triazoles fayyadami.",
+        "Qoricha yeroo facaaftan jala baalaa dabalatee guutummaatti dhaqqabuu isaa mirkaneessi; fangasiin sun jala baalaatti waan dhokatuuf."
+      ]
+    }
+  },
+  "coffee_dataset___phoma": {
+    "en": {
+      "symptoms": ["Irregular dark brown to black necrotic lesions, often with concentric rings.", "Lesions typically start at leaf margins and spread inwards.", "Infected branch tips may dry up and turn black (dieback)."],
+      "causes": ["Phoma spp. (fungal complex).", "Triggered by cold, damp conditions and physical wounding of leaves."],
+      "management": ["Avoid working in the coffee plantation when leaves are wet to prevent spread.", "Improve soil drainage to reduce humidity around the base of the plant.", "Maintain proper nutrition to strengthen plant immunity."],
+      "treatment": ["Prune and burn infected branches to eliminate the source of inoculum.", "Apply recommended fungicides early in the season, focusing on reaching the inner canopy.", "Disinfect pruning tools after each plant."]
+    },
+    "am": {
+      "symptoms": [
+        "በቅጠሎች ላይ መደበኛ ያልሆኑ ጥቁር ወይም ጥቁር-ቡኒ የደረቁ ነጠብጣቦች (necrotic lesions) ይታያሉ፤ እነዚህም ብዙ ጊዜ ክብ ቅርጽ ያላቸው መስመሮች ይኖሯቸዋል።",
+        "በሽታው ብዙውን ጊዜ ከቅጠሉ ጠርዝ ጀምሮ ወደ ውስጠኛው ክፍል ይስፋፋል።",
+        "በከፍተኛ ደረጃ የዛፉ ጫፎች ደርቀው ወደ ጥቁርነት ሊቀየሩ ይችላሉ (Dieback)።"
+      ],
+      "causes": [
+        "ፎማ (Phoma spp.) የተባለ የፈንጋይ ዝርያ ዋና መንስኤ ነው።",
+        "ቀዝቃዛና እርጥብ አየር እንዲሁም በቅጠሉ ላይ የሚደርሱ አካላዊ ጉዳቶች ለፈንጋዩ መስፋፋት ምቹ ሁኔታ ይፈጥራሉ።"
+      ],
+      "management": [
+        "በሽታው እንዳይሰራጭ ቅጠሎቹ እርጥብ በሚሆኑበት ጊዜ በቡና ተክል ውስጥ ሥራዎችን ከመሥራት ይቆጠቡ።",
+        "በተክሉ ዙሪያ ያለውን እርጥበት ለመቀነስ የአፈር የውሃ ፍሳሽን ያሻሽሉ።",
+        "የተክሉን የመከላከል አቅም ለማጠናከር ትክክለኛውን ማዳበሪያና ንጥረ-ነገር ይጠቀሙ።"
+      ],
+      "treatment": [
+        "የበሽታውን ምንጭ ለማጥፋት የታመሙትን ቅርንጫፎች ቆርጠው ያቃጥሉ።",
+        "በእድገት ወቅት መጀመሪያ ላይ ተገቢ የሆኑ የፈንጋይ መድኃኒቶችን ይርጩ፤ መድኃኒቱ ወደ ውስጥኛው የዛፉ ክፍል መድረሱን ያረጋግጡ።",
+        "እያንዳንዱን ተክል ከከርከሙ በኋላ የመከርከሚያ መሣሪያዎችን በደንብ ያጽዱ።"
+      ]
+    },
+    "om": {
+      "symptoms": [
+        "Baala irratti mallattoo gurraacha gogaa (necrotic) bocni isaa hin beekamne mul'ata; yeroo baay'ee geengoo wal keessa jiru qaba.",
+        "Mallattoon kun yeroo baay'ee qarqara baalaatti jalqabee gara keessaatti baballata.",
+        "Fiixeen damee bunaa gogee gara halluu gurraachaatti jijjiiramuu danda'a (Dieback)."
+      ],
+      "causes": [
+        "Fangasii Phoma spp. madda dhibee kanaa ti.",
+        "Qilleensa qabbanaawwaa fi jiidha qabu, akkasumas miidhama baala irra ga'uun baballata."
+      ],
+      "management": [
+        "Tatamsa'ina dhibee hirrisuuf yeroo baalli jiidhaa ta'etti buna keessa hojii hojjechuun hin dorfamu.",
+        "Jiidha gadi hirrisuuf dhangala'aa bishaan lafaa fooyyessi.",
+        "Humna ittisa biqiltuu cimsuuf xaanlee fi nyaata biqiltuu sirrii fayyadami."
+      ],
+      "treatment": [
+        "Dhibee dhabamsiisuuf damee miidhame murii gubi.",
+        "Yeroo guddinaa jalqaba irratti qoricha fangasii sirrii facaasi; keessa biqiltuu dhaqqabuu isaa mirkaneessi.",
+        "Biqiltuu tokko erga murtee booda meeshaa ittiin murte qulqulleessi."
+      ]
+    }
+  },
+  "Unknown": {
+    "en": {
+      "symptoms": ["Various atypical presentations not mapped to a specific disease."],
+      "causes": ["Unidentified pathogen or stress factor."],
+      "management": ["Isolate the plant.", "Monitor for further symptoms.", "Ensure basic care needs (water, light, soil) are met."],
+      "treatment": ["Consult a local agricultural extension or plant pathologist for precise identification."]
+    },
+    "am": {
+      "symptoms": ["ከተለመዱት በሽታዎች ጋር የማይመሳሰሉ ምልክቶች።"],
+      "causes": ["ያልታወቀ በሽታ ወይም የአካባቢ ሁኔታ።"],
+      "management": ["ተክሉን ለይተው ያስቀምጡ።", "ተጨማሪ ምልክቶችን ይከታተሉ።", "መሰረታዊ እንክብካቤ (ውሃ፣ ብርሃን) ያድርጉ።"],
+      "treatment": ["ለተሻለ መረጃ የግብርና ባለሙያ ያማክሩ።"]
+    },
+    "om": {
+      "symptoms": ["Mallattoo dhibee beekamootti hin ramadamne."],
+      "causes": ["Dhibee hin beekamne ykn haala naannoo."],
+      "management": ["Biqiltuu kophaa baasi.", "Mallattoo dabalataa hordofi.", "Kunnuunsa bu'uuraa (bishaan, ifa) eegi."],
+      "treatment": ["Ogeessa qonnaa ykn ogeessa dhibee biqiltuu mariisisi."]
+    }
+  }
+}

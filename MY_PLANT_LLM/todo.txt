@@ -1,0 +1,59 @@
+I want to create a **mobile-first web application** called **MY Plant** that allows users to upload or photograph a plant leaf and automatically detects:
+
+1. Whether the leaf is healthy or diseased.
+2. If diseased, the exact type of disease (e.g., leaf rust, black rot, bacterial wilt, etc.).
+3. Provide a **detailed explanation** about the disease including:
+    - Symptoms
+    - Causes
+    - Treatment methods / management suggestions
+4. Ask the user to select the **plant type** first and provide a **tailored explanation and treatment** for that specific plant.
+
+**Critical Requirements:**
+
+- Use a **TensorFlow.js** ML model trained on images from the local folder `plant_dataset` (healthy + diseased leaf images).  
+- The ML model should:
+    - Classify images as `"Healthy"` or `"Diseased"`.
+    - Identify the **disease type**.
+    - Provide a **human-readable explanation** including symptoms, causes, and treatment.
+- The **focus must be on backend functionality**, ensuring:
+    - Offline-first operation (no reliance on external servers)
+    - High inference accuracy
+    - Clear modular code that handles:
+        - Image upload/capture
+        - Preprocessing (resizing, normalization)
+        - Model inference
+        - Mapping predictions to detailed explanations and treatments
+- Provide a **trainable backend pipeline**:
+    - Prepare labeled datasets
+    - Train the model using Python (preferably TensorFlow/Keras)
+    - Evaluate accuracy
+    - Export the model for **offline TF.js deployment**
+- Implement a **web interface** (mobile-first) that connects to the backend API:
+    - Front-end: minimal HTML/CSS/JS (focus is secondary)
+    - Backend: Python (Flask/FastAPI preferred) or Node.js if needed
+    - Allow image upload or capture
+    - Return JSON response with:
+        - Disease label
+        - Confidence score
+        - Detailed explanation text
+        - Treatment methods
+- Support **PlantDoc-style enrichment**: Map model predictions to a local reference dataset containing symptoms, management, and plant type info.
+- Include **example scripts** for predicting a single image and returning results to the frontend immediately.
+- Include **full project structure**, step-by-step instructions, and deployment guide for offline use.
+- Provide clear comments and modular design so a developer with **basic Python and web experience** can reproduce and extend the system.
+- Prioritize **backend architecture, model accuracy, offline reliability, and detailed explanations** over frontend styling.
+
+**Output expected from AI assistant:**
+
+1. Complete **project folder structure** for `MY Plant`.
+2. **Python backend code** for training, inference, and API endpoints.
+3. TensorFlow.js integration instructions for offline model deployment.
+4. Minimal front-end code (HTML/CSS/JS) for image upload and result display.
+5. Dataset preprocessing and model training scripts.
+6. Ready-to-run instructions for serving the app locally:
+    ```
+    cd ~/MY_PLANT/frontend/www
+    python3 -m http.server 8765
+    ```
+7. Documentation for adding new plant types and diseases.
+8. Comments and explanations for every major module to ensure maintainability and clarity.

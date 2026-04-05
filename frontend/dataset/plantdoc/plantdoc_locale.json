@@ -1,0 +1,443 @@
+{
+  "am": {
+    "apple_scab_leaf": {
+      "label": "የአፕል ቅጠል ሳብ (ስካብ)",
+      "symptoms": "በቅጠልና ፍሬ ላይ ጥቁር ወይም ቆርቆሮ ቀለም ያሉ ነቀፋዎች፤ በእርጥበት ወቅት በቅጠል ጎን የደረቅ ወይፈኖ ቀለም ስፍራዎች።",
+      "management": "የወደቁ ቅጠሎችን ያፀዱ፣ እንዲነፍስ ብቻ የሚያደርግ ይፍጨን ጫር፣ በመመሪያ ኮፐር ወይም የተፈቀደ ፈንጋይ መድሃኒት፣ የሚቋቋም ዝርያ ምረጥ።"
+    },
+    "apple_leaf": {
+      "label": "የአፕል ጤናማ ቅጠል",
+      "symptoms": "ለመረጃ የሚያገለግል ጤናማ የአፕል ቅጠል መልክ፤ ሳብ ወይም ዝጉባ አልያዘም።",
+      "management": "ሚዛናዊ ኤቾቲን፣ ቅጠል ማቆየት በሌሊት ይቀንሱ፣ ዋናውን ሳብ/ዝጉባ በቅጽል ወቅት ይቆጣጠሩ።"
+    },
+    "apple_rust_leaf": {
+      "label": "የአፕል ዝጉባ ቅጠል",
+      "symptoms": "ከታች ከቅጠል በኩል ብርና ቢጫ ነጠብጣብ ስፍራዎች፤ አቅራቢያ የጁኒፐር አለም ጥላ ሊወድቅ ይችላል።",
+      "management": "ተለዋዋጭ አስተናጋጅ ተኮች ያራቁ እንደተቻለ፣ በፍቅ ወቅት የቅጠል እድገት ላይ የፈንጋይ ፕሮግራም።"
+    },
+    "bell_pepper_leaf": {
+      "label": "የቤል ፔፐር ጤናማ ቅጠል",
+      "symptoms": "ስነ ምህዳራዊ በሆነ ምስል የጤናማ የፈረፋ ጎማ ቅጠል ይመስላል።",
+      "management": "ከላይ የሚዘንበፍ መስጫ ይቀንሱ፤ ቫይረስ ለመከላከል አፒድ ይቆጣጠሩ።"
+    },
+    "bell_pepper_leaf_spot": {
+      "label": "የቤል ፔፐር ቅጠል ነቀፋ",
+      "symptoms": "ክቦች ወይም ማዕዘናዊ ነቀፋዎች ከቢጫ ክበብ፤ በእርጥበት ሁኔታ ሊዋሃዱ ይችላሉ።",
+      "management": "አየር ማስተላለፍ ያሻሽሉ፣ ርጥብ ተክል ላይ ስራ ይቀንሱ፣ ባክቴሪያዊ ከሆነ ኮፐር ወይም የተፈቀደ ባክቴሪ ሣይድ፣ ይዞታ ቅያር።"
+    },
+    "blueberry_leaf": {
+      "label": "የብሉቤሪ ጤናማ ቅጠል",
+      "symptoms": "በአፈር ምህዳር የሚታይ ትፈላጊ የብሉቤሪ ቅጠል ጤና።",
+      "management": "በሜዳው እርስ በእርስ ፒኤች ~4.5–5.5፣ ማይስጥር መተንፈስ፣ ሰርካዕ ማለፕ ስሮችን ያረጋግጡ።"
+    },
+    "cherry_leaf": {
+      "label": "የቼሪ ጤናማ ቅጠል",
+      "symptoms": "ጤናማ የቼሪ ቅጠል፤ ጨዋ ስድስት እና ኪሮስ ምድቦችን ያካትታል።",
+      "management": "ለቅጠል ነቀፋ ፈተናዎች ጽዳት፣ ያስፈልግ ከሆነ የአንሰት ፈንጋይ።"
+    },
+    "corn_gray_leaf_spot": {
+      "label": "የበቆላ ብርቱዕ ቅጠል ነቀፋ (ራፍ)",
+      "symptoms": "በእርጥብ ክልሎች በኅልድ መካከል ሬክታንግላር ምርጫ/tan ነቀፋዎች።",
+      "management": "የሚዋጋ ህይወት ከተር፣ ይዞታ ማተላለፍ፣ ቅድመ መክደያ ለቀሚያ፣ ኢኮኖሚያዊ ጥበብ ቢያንስ እንኳን ፈንጋይ።"
+    },
+    "corn_leaf_blight": {
+      "label": "የበቆላ ቅጠል ብላይት",
+      "symptoms": "ተራዝሞ የታነባ ብርት ቀለም ነቀፋዎች፤ ሰሜን/ደቡብ ድርጅቶች በአሻራ ልዩነት ይለያያሉ።",
+      "management": "የሚዋጋ ዝርያዎች፣ የቀሚያ አስተዳደር፣ ከፍተኛ ዋጋ ያለው ባለቤት አፈር ላይ ወቅታዊ ፈንጋይ።"
+    },
+    "corn_rust_leaf": {
+      "label": "የበቆላ ዝጉባ ቅጠል",
+      "symptoms": "በቅጠል ላይ ብር ቀለም ነጠብጣብ ስፍራዎች (ወርቅ እስከ ዘንባባ)።",
+      "management": "ብዙውን ጊዜ የኋለኛ ጊዜ፣ የቅጠል መውደቅ ኢኮኖሚን ካስቸገረ ገምግም፣ ጥበብ እንደተመቻቸ ፈንጋይ።"
+    },
+    "grape_leaf": {
+      "label": "የወይን ጤናማ ቅጠል",
+      "symptoms": "ለመረጃ የሚያስተናግድ ጤናማ የወይን ቅጠል።",
+      "management": "ለፀሃይና ለአየር የሚያልፍ ኮናፒ፣ በክልሉ የሚልድዩ/ጥቁር ሮት ፕሮግራም።"
+    },
+    "grape_leaf_black_rot": {
+      "label": "የወይን ቅጠል ጥቁር ሮት",
+      "symptoms": "የሽት እቃ ነቀፋዎች፣ ጥቁር ፍሬ ሰብሶ፤ ፍሬ ሊሰበር (ሙሚ) ይችላል።",
+      "management": "ሰናጅ (ሙሚ)፣ ክነና ክፍት፣ በአበባ/ፍረሀበባ የመከላከያ ፈንጋይ።"
+    },
+    "peach_leaf": {
+      "label": "የፒች ጤናማ ቅጠል",
+      "symptoms": "ጤናማ የፒች ቅጠሎች፤ ሌሎች ስብስት ከኮርል/ደብዳቤ ጋር።",
+      "management": "የአንሰት ኮፐር ለአንቲ/curl የሚያስፈልግ ከሆነ፣ ኤቾቲን በመጠን ይቆጣጠሩ።"
+    },
+    "potato_leaf": {
+      "label": "የድንች ጤናማ ቅጠል",
+      "symptoms": "ለመጠቀም የሚሆን ጤናማ የድንች ቅጠል።",
+      "management": "ቡኃዊ መስፈፋ፤ ብላይት ቁጣጣር፤ የተረጋገጠ ዘር፣ ከሰዓት በኋላ ከላይ መስጫ ይቀንሱ።"
+    },
+    "potato_leaf_early_blight": {
+      "label": "የድንች ቅጠል ቀደም ብላይት",
+      "symptoms": "የመሥመር ቀለበት ('ልዕሚት') ነቀፋዎች ብዙውን ከግል ቅጠቶች ይጀምራል።",
+      "management": "ኤቾቲን ሚዛን፣ በረሃ ስታስ፣ በእርጥብ ወቅት የፈንጋይፎፕራም።"
+    },
+    "potato_leaf_late_blight": {
+      "label": "የድንች ቅጠል ዘግዋን ብላይት",
+      "symptoms": "ውሃ የያዙ ቦታዎች ወደ ጥቁር፤ በእርጥብ ምሽት ነጭ ቅቅፍ።",
+      "management": "የሚዋጋ ዝርያዎች፣ ጥሬ ምርት ያስወግዱ፣ በሚስማማ አየር ፈንጋይ።"
+    },
+    "raspberry_leaf": {
+      "label": "የራዝቤሪ ጤናማ ቅጠል",
+      "symptoms": "ጤናማ የራዝቤሪ ቅጠል መልክ።",
+      "management": "ለአየር ቅጨና፣ ቫይረስ ተቀባዮች (አፒድ) በቅርንጫፍ ፍራፍሬ።"
+    },
+    "soyabean_leaf": {
+      "label": "የሶያ ጤናማ ቅጠል",
+      "symptoms": "ጤናማ የሶያ ቅጠል የመመሪያ።",
+      "management": "ይዞታ ማዞር፣ ዘር ክብካቤ፣ ዝጉባ/ፍሮግዬ በአካባቢ ይቆጣጠሩ።"
+    },
+    "squash_powdery_mildew_leaf": {
+      "label": "የስኳሽ ለምለም ነጭ ቅባ ያለው ቅጠል",
+      "symptoms": "ከቅጠል በላይ ነጭ ዱቄት ያለው ቅርፅ፤ በአርፍቀት ቀኖች ለጥርስሳ ያፋጣል።",
+      "management": "የሚዋጋ ዝርያ፣ ብረሐ/ባዮሎጂካል፣ ከባዩ ዕቃ ያራቁ እንደተቻለ።"
+    },
+    "strawberry_leaf": {
+      "label": "የስትሮበሪ ጤናማ ቅጠል",
+      "symptoms": "ጤናማ የስትሮበሪ ቅጠልመሰረት።",
+      "management": "ማለፕ፣ የቅጠል እርጥበት ይቀንሱ፣ ቡኃላዎች ይነዳሉ፤ ሚትንና የስፋት ነሠራ ይቆጣጠሩ።"
+    },
+    "tomato_early_blight_leaf": {
+      "label": "የቲማቲም ቀደም ብላይት ቅጠል",
+      "symptoms": "የመሥመር ቅርፀቶች ('ልዕሚት') ብዙውን ከድሃኝ ቅጠቶች ይፈጠራል።",
+      "management": "ማለፕ፣ መደገፍ፣ በእርጥብ ወቅት መርሀ-ግብር ፈንጋይ።"
+    },
+    "tomato_leaf": {
+      "label": "የቲማቲም ጤናማ ቅጠል",
+      "symptoms": "ጤናማ የቲማቲም ቅጠል ማጣቀሻ።",
+      "management": "ተመሳሳይ መሳፈያ፣ ለችርቻሮ የባህር ጫፍ መከላከያ ካልሲየም፣ ቱኔል ውስጥ የአየር መተላለፍ።"
+    },
+    "tomato_leaf_bacterial_spot": {
+      "label": "የቲማቲም ባክቴሪያዊ ቅጠል ነቀፋ",
+      "symptoms": "ትናነሽ ጥቁር ነካ ከቢጫ ክበብ፤ በፍረም ላይ ደግሞ 'ውጊት' ሊመስል ይችላል።",
+      "management": "የተረጋገጠ ዘር/ተክል፣ ከላይ መስጫ ይቀንሱ፣ ቀደም ሲሉ ኮፐር፣ ይዞታ ቅያር።"
+    },
+    "tomato_leaf_late_blight": {
+      "label": "የቲማቲም ዘግዋን ብላይት ቅጠል",
+      "symptoms": "የዘይት ምስል ያላቸው አይደሉም ነቀፋዎች፤ በእርጥበት ምስራቅ ቅርጫት።",
+      "management": "የሚዋጋ ዝርያዎች፣ በአትክልት ውስጥ ታመሙ ተኮች በፍጥነት ያስወግዱ፣ መነሻ ላይ ፈንጋይ።"
+    },
+    "tomato_leaf_mosaic_virus": {
+      "label": "የቲማቲም ሞዛይክ ቫይረስ ቅጠል",
+      "symptoms": "የቀለም ለውጥ፣ እንጨት እንደ ቅርጭት ማዞር፣ አቅርቦት ከቫይረስ ቅርጥ።",
+      "management": "ታመሙ ተኮች አስወግድ፣ አፒድ ይቆጣጠሩ፣ መሳሪያ አጽዳ፣ ቫይረስ-ነፃ ዘር።"
+    },
+    "tomato_leaf_yellow_virus": {
+      "label": "የቲማቲም ቢጫ ቫይረስ ቅጠል",
+      "symptoms": "ቢጫ ቀለም፣ መዞር፣ አቅርቦት—ብዙውን በነጭ ነፍስጫር ትራንስፖርት ያደርጋል።",
+      "management": "ራቢያተ ብርቱ ማለፕ፣ ነጭ ነፍስጫር አስተዳደር፣ ዝርያ የሚዋጋ በተገኘበት።"
+    },
+    "tomato_mold_leaf": {
+      "label": "የቲማቲም ፈንጋይ ቅጠል",
+      "symptoms": "የቅብስ ፈንጋይ በሽመራ ሥጋ ወይም በአፍራሽ እርጥበት ክፈፍ።",
+      "management": "ጋሪ ጥሩ አየር ነጠብጣብ፣ አየር ማስተላለፍ፣ ተገዢ ፈንጋይ።"
+    },
+    "tomato_septoria_leaf_spot": {
+      "label": "የቲማቲም ሴፕቶሪያ ቅጠል ነቀፋ",
+      "symptoms": "ትናንሽ ክቦች ከጥቁር ድንበርና በሜካ ቀለም ማዕከል፤ ጥቁር ትናንሽ ነጥቦች።",
+      "management": "መሬት ላይ ማለፕ የሚያጠፋ፣ ተመኑ ቁራጭ አስወግድ፣ በእርጥበት አመታት የፈንጋይ ምዝቋል።"
+    },
+    "tomato_two_spotted_spider_mites_leaf": {
+      "label": "የቲማቲም ሁለት ስፎት ስፓይደር ሚት ቅጠል",
+      "symptoms": "ጠፍጣፋ መጐስጐስ እና በረንዘድ፤ በከባድ ውርጭ መረብ።",
+      "management": "ከባይ ከባይ ሁኔታ ይቆዩ፣ አመቃ ተቋቁሞች፣ ሆርትካል ዘይት/ሳቦ በደረጃ።"
+    }
+  },
+  "om": {
+    "apple_scab_leaf": {
+      "label": "Baala Afaalee scarbii",
+      "symptoms": "Balaa'a fuduraa baalaafi mirkanaa irratti jijjiiramoo hambaa, yeroo nyaatumsaatti akka baliinsaa omishaa ta'e.",
+      "management": "Balloofte qorachuu, qarreen qilleensa ni dhiyeessu, sulfur ykn fungicide mallattoo irratti; tarsimoo dand'amu filadhu."
+    },
+    "apple_leaf": {
+      "label": "Baala Afaalee fayyaa",
+      "symptoms": "Baala Afaalee fakkataa fayyaa suura biyyaa keessatti bal'aa fi rust keessatti hin jiru.",
+      "management": "Walitti qabamnaan nyaata, balaan bosona hambaa irraa of eegu, yeroo duraa scouting."
+    },
+    "apple_rust_leaf": {
+      "label": "Baala Afaalee rust",
+      "symptoms": "Gogduu diimaa-gurraacha gubbaa baalaa jalaatti; muka juniperitti dhiyeessuu dabalataa.",
+      "management": "Meeshaalee dhiisee baasu yoo dand'ame; yerroo gannaa fungicide."
+    },
+    "bell_pepper_leaf": {
+      "label": "Baala qumbii fayyaa",
+      "symptoms": "Baala qumbii fayyaa suura biyyaa keessatti.",
+      "management": "Irraan ga'uu umrii irraa of qusadhu; afiidii bulchuu."
+    },
+    "bell_pepper_leaf_spot": {
+      "label": "Mallattoo baala qumbii",
+      "symptoms": "Gubbaa diimaa ykn sadarkaa dhibbaa lakkoofsi, yeroo bishaanii walitti hidhamu.",
+      "management": "Qilleensoota fooyessuu, hojii baala irratti hin turin bishaanii; copper; dhabbatummaa."
+    },
+    "blueberry_leaf": {
+      "label": "Baala buluberii fayyaa",
+      "symptoms": "Baala buluberii fayyaa suura biyyaa keessatti.",
+      "management": "Lafa pH 4.5–5.5, bishaan ni argamu, mulch."
+    },
+    "cherry_leaf": {
+      "label": "Baala cherii fayyaa",
+      "symptoms": "Baala cherii fayyaa, gosa sirrii fi haqaa.",
+      "management": "Qulqullinaan bal'aa, fungicide yeroo ba'uu."
+    },
+    "corn_gray_leaf_spot": {
+      "label": "Manca baaldiimaa magariisaa",
+      "symptoms": "Mallattoo rektanggilii gurbaa-gadadoo giddu gidduu hirriyyaa baaldiimaa bishaan qabeenyaa keessatti.",
+      "management": "Hybrid dandeettii, dhabbatummaa, qoricha yoo hin kafalamneen."
+    },
+    "corn_leaf_blight": {
+      "label": "Manca baaldiimaa",
+      "symptoms": "Mallattoo dheeraa tan; mancaawwan kaaba/baatisaa adda addaa.",
+      "management": "Gosa dandeettii, qabannoo balleessa, fungicide yeroo barbaachisaa."
+    },
+    "corn_rust_leaf": {
+      "label": "Baaldiimaa rust",
+      "symptoms": "Gogduu diimaa-sammuu gubbaa fi jalaa baalaa.",
+      "management": "Yeroo dhumaa yeroo baay'ee; yoo baalli dhufa fungicide."
+    },
+    "grape_leaf": {
+      "label": "Baala canaan fayyaa",
+      "symptoms": "Baala canaan fayyaa gatamee.",
+      "management": "Mana baalaa fooyessuu; taphaa naannoo."
+    },
+    "grape_leaf_black_rot": {
+      "label": "Dukkana baala canaan",
+      "symptoms": "Mallattoo qarqaraa, madda diimaa; mirkanni micciiruu.",
+      "management": "Qulqullinaa, mana bakka bu'aa, fungicide yeroo ubseeti."
+    },
+    "peach_leaf": {
+      "label": "Baala piichii fayyaa",
+      "symptoms": "Baala piichii fayyaa.",
+      "management": "Kopper yeroo duraa yoo barbaachisaa; nyaataan hin naafnee."
+    },
+    "potato_leaf": {
+      "label": "Baala danyee fayyaa",
+      "symptoms": "Baala danyee fayyaa.",
+      "management": "Mana uumuu, qorannoo blayitii, sim siftanaa hayyamaa, irraan ga'uu madaaluu."
+    },
+    "potato_leaf_early_blight": {
+      "label": "Manca danyee yeroo duraa",
+      "symptoms": "Giddugalee lakoolsaa, baala gadi jalqabaa.",
+      "management": "Nyaata madaaluu, stress xiqqeessuu, fungicide yeroo bishaan qabessa."
+    },
+    "potato_leaf_late_blight": {
+      "label": "Manca danyee yeroo dhuma",
+      "symptoms": "Gurbaa bishaanitti fuduraa, yeroo halkaniin balballaa diimaa.",
+      "management": "Gosa dandeettii, miidhaa balleessuu, fungicide yeroo mijaa."
+    },
+    "raspberry_leaf": {
+      "label": "Baala raazoberii fayyaa",
+      "symptoms": "Baala raazoberii fayyaa.",
+      "management": "Qophaa'uu fooyessuu; afiidii to'achuu."
+    },
+    "soyabean_leaf": {
+      "label": "Baala soyaa fayyaa",
+      "symptoms": "Baala soyaa fayyaa.",
+      "management": "Dhabbatummaa, sim siftanaa, scout rust."
+    },
+    "squash_powdery_mildew_leaf": {
+      "label": "Balballaa adii Squash",
+      "symptoms": "Gubbaa baalaa bal banaa; yeroo ho'aafi halkan qilleessaatti bal'ina.",
+      "management": "Gosa dandeettii, sulfur; baala miidhaa guddaa balleessuu."
+    },
+    "strawberry_leaf": {
+      "label": "Baala istirooberii fayyaa",
+      "symptoms": "Baala istirooberii fayyaa.",
+      "management": "Mulch, balaan bosona, gosa beds; mite bulchuu."
+    },
+    "tomato_early_blight_leaf": {
+      "label": "Manca tamaatii yeroo duraa",
+      "symptoms": "Mallattoo lakoolsaa, baala mo'aa jalqaba.",
+      "management": "Mulch, gorraacha, fungicide yeroo bishaan qabessa."
+    },
+    "tomato_leaf": {
+      "label": "Baala tamaatii fayyaa",
+      "symptoms": "Baala tamaatii fayyaa.",
+      "management": "Bishaan madaaluu, kaalsiyeemii, mana tunnel qilleensa."
+    },
+    "tomato_leaf_bacterial_spot": {
+      "label": "Mallattoo baktariyamaa tamaatii",
+      "symptoms": "Gogduu xiqqoo diimaa lakkoofsa diimaa; mirkanaa irraas.",
+      "management": "Sim siftanaa hayyamaa, irraan ga'uu xiqqeessuu, copper, dhabbatummaa."
+    },
+    "tomato_leaf_late_blight": {
+      "label": "Manca tamaatii yeroo dhuma",
+      "symptoms": "Gurbaa yeroo bishaanii, balballaa yeroo qilleessaatti.",
+      "management": "Gosa dandeettii, miciirama balleessuu, fungicide."
+    },
+    "tomato_leaf_mosaic_virus": {
+      "label": "Vaayirasii mozaayikii tamaatii",
+      "symptoms": "Gurraacha, fakkataa muka, gadi bu'ina.",
+      "management": "Miciiru balleessuu, afiidii, mizzoo nyaachuu, sim siftanaa."
+    },
+    "tomato_leaf_yellow_virus": {
+      "label": "Vaayirasii magariisaa tamaatii",
+      "symptoms": "Magariisaa, goofta, gadi bu'ina—xiiyyafitti.",
+      "management": "Mulch ifaattee, xiiyyara bulchuu."
+    },
+    "tomato_mold_leaf": {
+      "label": "Fungi tamaatii",
+      "symptoms": "Uumama duumessa yeroo nyaataafi qilleensa xiqqaa.",
+      "management": "Qilleensa garaagaraa, mancer fi fungicide."
+    },
+    "tomato_septoria_leaf_spot": {
+      "label": "Mallattoo Septooriyaa",
+      "symptoms": "Gogduu yeroo lakkoofsa gabatee fi giddu diimaa.",
+      "management": "Lafa mulch, balleessitu, fungicide yeroo bishaan qabessa."
+    },
+    "tomato_two_spotted_spider_mites_leaf": {
+      "label": "Xiiyyee lamaa Mite",
+      "symptoms": "Qaxxaamuruu, gurraacha, web yeroo hambaa.",
+      "management": "Bahaa nyaachuu, mite ittisa, salphaatti siqqee."
+    }
+  },
+  "ar": {
+    "apple_scab_leaf": {
+      "label": "تلف ورق التفاح (الجرب)",
+      "symptoms": "بقع داكنة أو قشرية على الأوراق والثمار؛ بقع زيتونية مخملية على الوجه السفلي في الرطوبة.",
+      "management": "كنس الأوراق المتساقطة، تقليم لتمرير الهواء، كبريت أو فطرية حسب التعليمات، أصناف مقاومة."
+    },
+    "apple_leaf": {
+      "label": "ورق تفاح سليم",
+      "symptoms": "مظهر ورق تفاح سليم كمرجع في مجموعة البيانات.",
+      "management": "تغذية متوازنة، تقليل بلل الأوراق ليلاً، رصد مبكر للجرب/الصدأ."
+    },
+    "apple_rust_leaf": {
+      "label": "صدأ ورق التفاح",
+      "symptoms": "بؤر برتقالية-صفراء على وجه الورك السفلي؛ قد يسبب تساقطاً قرب العفص.",
+      "management": "إزالة المضيفين البدائين حيث يمكن؛ برنامج فطرية عند انفتاح الأوراق."
+    },
+    "bell_pepper_leaf": {
+      "label": "ورق فلفل حلو سليم",
+      "symptoms": "مظهر ورق سليم للفلفل في الصور الميدانية.",
+      "management": "تقليل الري العلوي؛ مكافحة حشرات المن لتقليل الفيروسات."
+    },
+    "bell_pepper_leaf_spot": {
+      "label": "بقع ورق الفلفل",
+      "symptoms": "بقع دائرية أو زاوية مع هالات صفراء؛ قد تندمج في الرطوبة.",
+      "management": "تهوية، تجنب العمل على نباتات مبللة، نحاس أو مبيدات بكتيرية؛ تناوب."
+    },
+    "blueberry_leaf": {
+      "label": "ورق توت أزرق سليم",
+      "symptoms": "أوراق توت أزرق سليمة في مشاهد طبيعية.",
+      "management": "تربة حمضية 4.5–5.5، ري منتظم، نشارة للجذور."
+    },
+    "cherry_leaf": {
+      "label": "ورق كرز سليم",
+      "symptoms": "ورق كرز سليم؛ يشمل أنواعاً حامضة وحلوة.",
+      "management": "نظافة ضد أمراض الأوراق، معالجات شتوية عند الحاجة."
+    },
+    "corn_gray_leaf_spot": {
+      "label": "لفحة رمادية لذرة",
+      "symptoms": "آفات مستطيلة رمادية-بيج بين عروق الورق؛ شائعة في مناطق رطبة.",
+      "management": "هجن مقاومة، تناوب، تقليل بقايا؛ فطرية عند الحاجة."
+    },
+    "corn_leaf_blight": {
+      "label": "لفحة ورق الذرة",
+      "symptoms": "آفات طويلة لونها أسمر؛ يختلف نمط الشمال/الجنوب.",
+      "management": "أصناف مقاومة، إدارة بقايا، فطرية في حقول عالية القيمة."
+    },
+    "corn_rust_leaf": {
+      "label": "صدأ الذرة",
+      "symptoms": "بؤر صدأ برتقالية إلى قرفية على سطحي الورقة.",
+      "management": "غالباً في آخر الموسم؛ راقب الإجهاد الورقي والمبيد عند اللزوم."
+    },
+    "grape_leaf": {
+      "label": "ورق عنب سليم",
+      "symptoms": "مرجع ورق عنب سليم.",
+      "management": "تأسيس مظلة جيدة وبرامج محلية للبياض/التعفن الأسود."
+    },
+    "grape_leaf_black_rot": {
+      "label": "تعفن أسود لورق العنب",
+      "symptoms": "آفات ممزقة؛ أجسام سوداء؛ قد يجف الثمر.",
+      "management": "إزالة الثمار المومياء، فتح المظلة، وقاية عند الإزهار/العقد."
+    },
+    "peach_leaf": {
+      "label": "ورق خوخ سليم",
+      "symptoms": "أوراق خوخ سليمة.",
+      "management": "نحاس شتوي عند اللزوم؛ تجنب الإفراط في النيتروجين."
+    },
+    "potato_leaf": {
+      "label": "ورق بطاطس سليم",
+      "symptoms": "مرجع ورق بطاطس سليم.",
+      "management": "التكويم، رصد اللفحة، بذار معتمد، تقليل الرش المسائي."
+    },
+    "potato_leaf_early_blight": {
+      "label": "لفحة مبكرة للبطاطس",
+      "symptoms": "حلقات مستهدفة غالباً في أسفل المظلة.",
+      "management": "توازن تغذية، تخفيف إجهاد، فطرية في مواسم رطبة."
+    },
+    "potato_leaf_late_blight": {
+      "label": "لفحة متأخرة للبطاطس",
+      "symptoms": "بقع متشربة بالماء تتحول لبنية؛ بياض ليلي رطب.",
+      "management": "أصناف مقاومة، إزالة المصاب، مبيد في الطقس المناسب."
+    },
+    "raspberry_leaf": {
+      "label": "ورق توت العليق سليم",
+      "symptoms": "مظهر ورق سليم.",
+      "management": "تقليم للتهوية؛ مكافحة حاملات الفيروس."
+    },
+    "soyabean_leaf": {
+      "label": "ورق فول صويا سليم",
+      "symptoms": "مرجع ورق صويا سليم.",
+      "management": "تناوب، معالجة البذور، رصد الصدأ."
+    },
+    "squash_powdery_mildew_leaf": {
+      "label": "بياض دقيق لقرع",
+      "symptoms": "طبقة بيضاء بودرية على الوجه العلوي؛ ينتشر في حر وجاف وليال رطبة.",
+      "management": "أصناف مقاومة، كبريت/حيوية؛ إزالة الأوراك المصابة."
+    },
+    "strawberry_leaf": {
+      "label": "ورق فراولة سليم",
+      "symptoms": "مرجع ورق فراولة سليم.",
+      "management": "نشارة، تقليل بلل الأوراق، تدوير الأسرة."
+    },
+    "tomato_early_blight_leaf": {
+      "label": "لفحة مبكرة للطماطم",
+      "symptoms": "آفات مستهدفة غالباً في أوراق أقدم.",
+      "management": "نشارة، دعامات، فطرية مجدولة؛ قلّم بحذر."
+    },
+    "tomato_leaf": {
+      "label": "ورق طماطم سليم",
+      "symptoms": "مرجع ورق طماطم سليم.",
+      "management": "ري متوازن، كالسيوم، تهوية الدفيئة."
+    },
+    "tomato_leaf_bacterial_spot": {
+      "label": "بقع بكتيرية للطماطم",
+      "symptoms": "نقط داكنة مع هالة صفراء؛ قد تصيب الثمر.",
+      "management": "بذار/شتلات معتمدة، تقليل الرش، نحاس مبكر، تناوب."
+    },
+    "tomato_leaf_late_blight": {
+      "label": "لفحة متأخرة للطماطم",
+      "symptoms": "آفات دهنية غير منتظمة؛ بياض على الهامش رطب.",
+      "management": "أصناف مقاومة، إزالة فورية في البستان، مبيد."
+    },
+    "tomato_leaf_mosaic_virus": {
+      "label": "فيروس موزاييك الطماطم",
+      "symptoms": "تبرقش، تشويه، تقزم.",
+      "management": "إزالة المصاب، مكافحة المن، تعقيم، بذار نظيف."
+    },
+    "tomato_leaf_yellow_virus": {
+      "label": "فيروس اصفرار الطماطم",
+      "symptoms": "اصفرار، تجعيد، تقزم—غالباً بواسطة الذبابة البيضاء.",
+      "management": "فيلم عاكس، مكافحة الذبابة، أصناف مقاومة."
+    },
+    "tomato_mold_leaf": {
+      "label": "عفن ورق الطماطم",
+      "symptoms": "فطريات رقيقة على نسيج متقدم أو رطوبة عالية.",
+      "management": "تجفيف الهواء، تهوية، مبيد مستهدف."
+    },
+    "tomato_septoria_leaf_spot": {
+      "label": "بقع سيبتوريا للطماطم",
+      "symptoms": "نقط دائرية بحدود داكنة ومركز بيج؛ نقط سوداء دقيقة.",
+      "management": "تغطية التربة، إزالة بقايا، تناوب مبيد رطب."
+    },
+    "tomato_two_spotted_spider_mites_leaf": {
+      "label": "حلم دودة العنكبوت لطماطم",
+      "symptoms": "نقط دقيقة، برونزة، خيوط عند الضغط.",
+      "management": "تجنب الغبار، مفترسات، زيوت/صابون حسب المرحلة."
+    }
+  }
+}
