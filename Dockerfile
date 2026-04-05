@@ -1,7 +1,7 @@
 # --- Stage 1: Build/Prepare Frontend ---
 FROM nginx:alpine as frontend-stage
 # Use the comprehensive frontend directory
-COPY frontend /usr/share/nginx/html
+COPY frontend /var/www/html
 
 # --- Stage 2: Final Monolithic Image ---
 FROM python:3.9-slim
@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
     curl \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && rm /etc/nginx/sites-enabled/default
 
 # Set working directory
 WORKDIR /app
@@ -26,7 +27,7 @@ RUN pip install --no-cache-dir -r /app/backend/requirements.txt
 COPY MY_PLANT_LLM/MY_PLANT/backend /app/backend
 
 # Copy frontend from stage 1
-COPY --from=frontend-stage /usr/share/nginx/html /usr/share/nginx/html
+COPY --from=frontend-stage /var/www/html /var/www/html
 
 # Copy configurations
 COPY nginx_prod.conf /etc/nginx/conf.d/default.conf
