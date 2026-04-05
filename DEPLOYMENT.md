@@ -14,12 +14,15 @@ This guide explains how to deploy the "MY Plant" application to Railway.app usin
 - Select **Deploy from GitHub repo**.
 - Choose your `MY_PLANT` repository.
 
-### 2. Automatic Detection
-Railway will detect the `Dockerfile` at the root of your repository. 
-- It will automatically build the image which includes **both** the Frontend (Nginx) and the Backend (Flask/Gunicorn).
-- It will expose the application on **port 80** by default.
+### 3. Generate Your Public Link
+Railway does not always generate a link by default. You MUST do this manually once:
+- Click on your **Service** in the Railway dashboard.
+- Go to the **Settings** tab.
+- Scroll down to the **Networking** section.
+- Click the **Generate Domain** button.
+- 🎉 **Your public link will appear immediately!** (e.g., `my-plant-production.up.railway.app`)
 
-### 3. Add Environment Variables
+### 4. Add Environment Variables
 - If you use features like the AI Chat or TTS, go to the **Variables** tab in Railway.
 - Add `NARAKEET_API_KEY` or any other necessary keys.
 
