@@ -1,5 +1,6 @@
 # --- Stage 1: Build/Prepare Frontend ---
 FROM nginx:alpine as frontend-stage
+# Ensure we copy the correct frontend (the one with index.html in its root)
 COPY frontend /usr/share/nginx/html
 
 # --- Stage 2: Final Monolithic Image ---
@@ -27,15 +28,16 @@ COPY MY_PLANT_LLM/MY_PLANT/backend /app/backend
 COPY --from=frontend-stage /usr/share/nginx/html /usr/share/nginx/html
 
 # Copy configurations
-COPY nginx_prod.conf /etc/nginx/sites-available/default
-# Ensure Nginx uses our config (on Debian/Slim, sites-enabled is used)
-RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-# Prevent nginx from running as a background daemon
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+# Fix: Railway/Debian Nginx uses /etc/nginx/conf.d/default.conf for the default site
+COPY nginx_prod.conf /etc/nginx/conf.d/default.conf
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose port 80 (Railway will map this to the public URL)
+# Healthcheck to help Railway monitor readiness
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost/health || exit 1
+
+# Expose port 80
 EXPOSE 80
 
 # Run supervisor to manage both Gunicorn and Nginx
