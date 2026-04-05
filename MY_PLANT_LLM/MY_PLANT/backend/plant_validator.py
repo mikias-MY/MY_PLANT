@@ -19,7 +19,7 @@ class PlantValidator:
     def __init__(self):
         self.model_path = os.path.join(os.path.dirname(__file__), 'efficientdet_lite0.tflite')
         self.detector = None
-        if MEDIAPIPE_AVAILABLE and os.path.exists(self.model_path):
+        if MEDIAPIPE_AVAILABLE and os.path.exists(self.model_path) and os.environ.get('DISABLE_MEDIAPIPE') != '1':
             try:
                 base_options = python.BaseOptions(model_asset_path=self.model_path)
                 options = vision.ObjectDetectorOptions(base_options=base_options, score_threshold=0.3)
