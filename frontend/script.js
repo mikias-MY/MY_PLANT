@@ -878,8 +878,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Submit strictly to MY_PLANT native Python TF OFFLINE backend
             const formData = new FormData();
-            formData.append('image', blobOrFile, 'image.jpg');
-            formData.append('plantType', ptValue);
+            formData.append('file', blobOrFile, 'image.jpg');
+            formData.append('plant_type', ptValue);
             if (window.MY_PLANT_I18N) {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
