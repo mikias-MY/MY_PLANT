@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadClassIndices() {
         if (classIndices) return classIndices;
         const res = await fetch('class_indices.json');
-        if (!res.ok && res.status !== 0) throw new Error(t('err_analysis_body'));
+        if (!res.ok) throw new Error(t('err_analysis_body'));
         classIndices = await res.json();
         return classIndices;
     }
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (plantDocLocaleJson) return plantDocLocaleJson;
         try {
             const res = await fetch('dataset/plantdoc/plantdoc_locale.json');
-            if (!res.ok && res.status !== 0) return (plantDocLocaleJson = {});
+            if (!res.ok) return (plantDocLocaleJson = {});
             plantDocLocaleJson = await res.json();
         } catch {
             plantDocLocaleJson = {};
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('dataset/plantdoc/plantdoc_village_map.json'),
             fetch('dataset/plantdoc/dataset_manifest.json')
         ]);
-        if ((!clsRes.ok && clsRes.status !== 0) || (!mapRes.ok && mapRes.status !== 0) || (!manRes.ok && manRes.status !== 0)) {
+        if (!clsRes.ok || !mapRes.ok || !manRes.ok) {
             throw new Error('Could not load PlantDoc dataset files');
         }
         const clsJson = await clsRes.json();
@@ -878,31 +878,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Submit strictly to MY_PLANT native Python TF OFFLINE backend
             const formData = new FormData();
-            formData.append('file', blobOrFile, 'image.jpg');
-            formData.append('plant_type', ptValue);
+            formData.append('image', blobOrFile, 'image.jpg');
+            formData.append('plantType', ptValue);
             if (window.MY_PLANT_I18N) {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
 
-            let pb = null;
-            try {
-                const res = await fetch('http://192.168.100.40:5000/predict', {
-                    method: 'POST',
-                    body: formData
-                });
-                if (!res.ok) {
-                    throw new Error("Backend not available");
-                }
-                pb = await res.json();
-            } catch (err) {
-                console.log("Backend offline, falling back to local TensorFlow.js inference...");
-                const tfResult = await predictWithTensorFlow();
-                pb = {
-                    status: 'SUCCESS',
-                    label: tfResult.rawName,
-                    confidence: tfResult.probability
-                };
+            const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const predictUrl = isLocal ? 'http://localhost:5000/predict' : '/api/predict';
+            const res = await fetch(predictUrl, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!res.ok) {
+                const errJson = await res.json().catch(() => ({}));
+                throw new Error(errJson.error || res.statusText);
             }
+
+            const pb = await res.json();
             
             // Handle explicit REJECTED status from backend validation
             if (pb.status === 'REJECTED') {

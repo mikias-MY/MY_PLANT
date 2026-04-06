@@ -26,7 +26,7 @@ async def health_check():
     return {"status": "healthy", "model": "ResNet-50 (Simulated)"}
 
 @app.post("/predict")
-async def predict_disease(file: UploadFile = File(...), plant_type: str = Form("Unknown"), language: str = Form("en")):
+async def predict_disease(file: UploadFile = File(...), plant_type: str = Form("Unknown", alias="plantType"), language: str = Form("en")):
     if not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="File must be an image.")
     

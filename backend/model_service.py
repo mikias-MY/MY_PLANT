@@ -179,9 +179,12 @@ Return a strictly structured JSON object. No prose.
                 content = content.split("```json")[1].split("```")[0].strip()
             elif "```" in content:
                 content = content.split("```")[1].split("```")[0].strip()
-            content = content.strip().replace("\n", " ").replace("\r", "")
-            
-            data = json.loads(content)
+            # Try parsing as-is first, then clean if needed
+            try:
+                data = json.loads(content.strip())
+            except json.JSONDecodeError:
+                content = content.strip().replace("\n", " ").replace("\r", "")
+                data = json.loads(content)
             
             if "error" in data:
                 return self.finalize_error(data["error"])
