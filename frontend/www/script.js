@@ -693,17 +693,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (flashBtn) flashBtn.classList.remove('flash-active');
     }
 
-    async function toggleFlash(forceOff = false) {
+    async function toggleFlash() {
         if (!cameraStream) return;
 
         let track = cameraStream.getVideoTracks()[0];
         let capabilities = typeof track.getCapabilities === 'function' ? track.getCapabilities() : {};
 
-        if (forceOff && !isFlashOn) return;
-
-        if (!capabilities.torch && !forceOff) {
+        // If trying to turn on flash but torch capability isn't reported, try switching to ideal environment camera first
+        if (!isFlashOn && !capabilities.torch) {
             try {
-                // Try switching to ideal environment camera first
                 const rear = await navigator.mediaDevices.getUserMedia({
                     video: { facingMode: { ideal: 'environment' } },
                     audio: false
@@ -711,34 +709,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 stopCamera();
                 cameraStream = rear;
                 if (cameraVideo) cameraVideo.srcObject = cameraStream;
-                track = cameraStream.getVideoTracks()[0];
-                capabilities = typeof track.getCapabilities === 'function' ? track.getCapabilities() : {};
-            } catch (e) {}
+            } catch (e) {
+                console.warn('Failed to switch to environment camera for flash:', e);
+            }
         }
 
-        try {
-            isFlashOn = forceOff ? false : !isFlashOn;
-            await track.applyConstraints({
-                advanced: [{ torch: isFlashOn }]
-            });
-
-            const flashBtn = document.getElementById('flash-trigger');
-            if (flashBtn) {
-                if (isFlashOn) flashBtn.classList.add('flash-active');
-                else flashBtn.classList.remove('flash-active');
-            }
-        } catch (err) {
-            console.error('Error toggling flash:', err);
-            isFlashOn = forceOff ? false : !isFlashOn; // Revert state
-            const flashBtn = document.getElementById('flash-trigger');
-            if (flashBtn) flashBtn.classList.remove('flash-active');
-
-            if (!forceOff) {
-                if (errorModal) {
-                    if (errorTitle) errorTitle.textContent = 'Flash not available';
-                    if (errorDesc) errorDesc.textContent = 'This camera does not support torch. Try the rear camera or use brighter light.';
-                    errorModal.classList.remove('hidden');
-                }
+        // Just toggle the state and UI, we will apply the torch constraint during capture
+        isFlashOn = !isFlashOn;
+        const flashBtn = document.getElementById('flash-trigger');
+        if (flashBtn) {
+            if (isFlashOn) {
+                flashBtn.classList.add('flash-active');
+            } else {
+                flashBtn.classList.remove('flash-active');
             }
         }
     }
@@ -784,10 +767,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (scanTrigger) {
         scanTrigger.addEventListener('click', async () => {
+            if (isFlashOn && cameraStream) {
+                try {
+                    const track = cameraStream.getVideoTracks()[0];
+                    await track.applyConstraints({ advanced: [{ torch: true }] });
+                    // Wait for camera auto-exposure to adjust to the new light
+                    await new Promise(r => setTimeout(r, 600));
+                } catch (e) {
+                    console.warn('Flash during capture failed:', e);
+                }
+            }
+
             captureFrame();
-            
-            if (isFlashOn) {
-                toggleFlash(true);
+
+            if (isFlashOn && cameraStream) {
+                try {
+                    const track = cameraStream.getVideoTracks()[0];
+                    await track.applyConstraints({ advanced: [{ torch: false }] });
+                } catch (e) {}
             }
 
             setScanningKey('analyzing');
