@@ -137,10 +137,10 @@
             care_detail_disease_general: '• Lab samples: wrap fresh tissue in dry paper towel, not airtight plastic; overnight mail beats delay.\n• One weird plant vs many: single specimens may be genetic sport or injury; clusters imply environment or pathogen.\n• Rotation memory: last year’s family in that bed guides soil-borne suspects.\n• Vascular vs foliar: one-sided yellow flags may mean wilt pathogens—split stems carefully to compare streaking.\n• Notes: typed spray diary beats memory—rate product, adjuvant, growth stage.\n• Local knowledge: clubs know what is “going around”—cross-check with science-based extension.\n• Stop rule: three conflicting app diagnoses means pause spending until a human agrees with one.'
         },
         am: {
-            app_title: 'MY Plant',
+            app_title: 'የእኔ ተክል',
             language_label: 'ቋንቋ',
             welcome_to: 'እንኳን ደህና መጡ ወደ',
-            intro_2: 'ከ MY plant ጋር በመጀመር|የእፅዋት በሽታ ጤና መፍትሄዎችን ማግኘት|ምን ያህል ቀላል እንደሆነ ያስሱ',
+            intro_2: 'ከ የእኔ ተክል ጋር በመጀመር|የእፅዋት በሽታ ጤና መፍትሄዎችን ማግኘት|ምን ያህል ቀላል እንደሆነ ያስሱ',
             subtitle_get_started: 'እንጀምር!',
             desc_get_started: 'የእርስዎን ተክል በቀላሉ ያስተናግዱ',
             btn_get_started: 'ጀምር',
@@ -267,10 +267,10 @@
             care_detail_disease_general: '• ናሙና፦ የታመመ ቅጠል ለባለሙያ ሲወስዱ ሳይደርቅ በወረቀት ጠቅልለው ይውሰዱ።\n• ስርጭት፦ በአንድ ተክል ላይ ብቻ ከሆነ ጉዳት ሊሆን ይችላል፤ በብዙ ተክሎች ላይ ከሆነ ግን በሽታ ነው።\n• ታሪክ፦ ባለፈው ዓመት በዚያ ቦታ ምን ተክል እንደነበረ ያስታውሱ (የአፈር በሽታዎችን ለመለየት)።\n• ማሳሰቢያ፦ መተግበሪያው የሚሰጠው ውጤት ከተጠራጠሩ ምንም ዓይነት ወጪ ከማውጣትዎ በፊት በሰው ያረጋግጡ።'
         },
         om: {
-            app_title: 'MY Plant',
+            app_title: 'biqiltuu koo',
             language_label: 'Afaan',
             welcome_to: 'Baga nagaan dhufte',
-            intro_2: 'MY plant waliin jalqabaa|dhimma dhukkubsaa ijoo biqiltuu|barbaachisummaa argachuuf qoradhu',
+            intro_2: 'biqiltuu koo waliin jalqabaa|dhimma dhukkubsaa ijoo biqiltuu|barbaachisummaa argachuuf qoradhu',
             subtitle_get_started: 'Haa jalqabnu!',
             desc_get_started: 'Qoradhu!|Tajaajila gara biqiltuu keessatti fidii',
             btn_get_started: 'Jalqabi',
@@ -397,10 +397,10 @@
             care_detail_disease_general: '• Saampila: biqiltuu dhukkubame ogeessaaf yeroo geessitu waraqaatti maradhu malee akka hin gommine eegi.\n• Tatamsa\'ina: biqiltuu tokko qofa irratti yoo ta\'e miidhaa ta\'uu danda\'a; hunda irratti yoo ta\'e dhibee dha.\n• Seenaa: waggaa darbe bakka sana midhaan kamtuu ture (dhibee lafaa beekuuf).\n• Hubachiisa: bu\'aa appii kanaa yoo shakkite baasii dabalataa dura ogeessaan mirkaneessi.'
         },
         ar: {
-            app_title: 'MY Plant',
+            app_title: 'نبات بلدي',
             language_label: 'اللغة',
             welcome_to: 'مرحبًا بك في',
-            intro_2: 'ابدأ مع MY plant|واكتشف مدى سهولة إيجاد|حلول صحة نباتاتك',
+            intro_2: 'ابدأ مع نبات بلدي|واكتشف مدى سهولة إيجاد|حلول صحة نباتاتك',
             subtitle_get_started: 'لنبدأ!',
             desc_get_started: 'انطلق!|قدّم العناية مباشرة لنباتك',
             btn_get_started: 'ابدأ',
@@ -553,7 +553,7 @@
         currentLang = code;
         try {
             localStorage.setItem(STORAGE_KEY, code);
-        } catch (e) {}
+        } catch (e) { }
         const html = document.documentElement;
         html.setAttribute('lang', code === 'ar' ? 'ar' : code === 'am' ? 'am' : code === 'om' ? 'om' : 'en');
         html.setAttribute('dir', code === 'ar' ? 'rtl' : 'ltr');
@@ -596,7 +596,7 @@
         try {
             const saved = localStorage.getItem(STORAGE_KEY);
             if (saved && STRINGS[saved]) currentLang = saved;
-        } catch (e) {}
+        } catch (e) { }
         const strip = document.getElementById('lang-strip');
         if (strip) {
             strip.querySelectorAll('.lang-chip').forEach((btn) => {

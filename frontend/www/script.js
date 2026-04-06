@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    window.MY_PLANT_TTS_PROXY_URL = '/tts'; // Local backend proxy
+    window.MY_PLANT_TTS_PROXY_URL = '/api/tts'; // Proxied via Nginx
     
     const HISTORY_KEY = 'my_plant_scan_history_v1';
     const MAX_HISTORY = 25;
@@ -187,10 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function getCameraVideoStream() {
         if (!navigator.mediaDevices || typeof navigator.mediaDevices.getUserMedia !== 'function') {
             const isSecure = typeof window.isSecureContext !== 'undefined' ? window.isSecureContext : window.location.protocol === 'https:';
-            const isLocalIP = /^(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.|100\.115\.)/.test(window.location.hostname);
-            const isCapacitor = window.location.protocol.includes('capacitor') || window.location.protocol.includes('http') && window.location.hostname === 'localhost';
-            
-            if (!isSecure && !isLocalIP && !isCapacitor) {
+            if (!isSecure && window.location.hostname !== '100.115.92.205' && window.location.hostname !== '100.115.92.205') {
                 throw new Error(t('err_secure_context'));
             }
             throw new Error(t('err_no_camera_api'));
@@ -696,36 +693,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (flashBtn) flashBtn.classList.remove('flash-active');
     }
 
-    async function toggleFlash() {
+    async function toggleFlash(forceOff = false) {
         if (!cameraStream) return;
 
         let track = cameraStream.getVideoTracks()[0];
-        let capabilities = track.getCapabilities();
+        let capabilities = typeof track.getCapabilities === 'function' ? track.getCapabilities() : {};
 
-        if (!capabilities.torch) {
+        if (forceOff && !isFlashOn) return;
+
+        if (!capabilities.torch && !forceOff) {
             try {
+                // Try switching to ideal environment camera first
                 const rear = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: { exact: 'environment' } },
+                    video: { facingMode: { ideal: 'environment' } },
                     audio: false
                 });
                 stopCamera();
                 cameraStream = rear;
                 if (cameraVideo) cameraVideo.srcObject = cameraStream;
                 track = cameraStream.getVideoTracks()[0];
-                capabilities = track.getCapabilities();
+                capabilities = typeof track.getCapabilities === 'function' ? track.getCapabilities() : {};
             } catch (e) {}
-            if (!capabilities.torch) {
-                if (errorModal) {
-                    if (errorTitle) errorTitle.textContent = 'Flash not available';
-                    if (errorDesc) errorDesc.textContent = 'This camera does not support torch. Try the rear camera or use brighter light.';
-                    errorModal.classList.remove('hidden');
-                }
-                return;
-            }
         }
 
         try {
-            isFlashOn = !isFlashOn;
+            isFlashOn = forceOff ? false : !isFlashOn;
             await track.applyConstraints({
                 advanced: [{ torch: isFlashOn }]
             });
@@ -737,6 +729,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (err) {
             console.error('Error toggling flash:', err);
+            isFlashOn = forceOff ? false : !isFlashOn; // Revert state
+            const flashBtn = document.getElementById('flash-trigger');
+            if (flashBtn) flashBtn.classList.remove('flash-active');
+
+            if (!forceOff) {
+                if (errorModal) {
+                    if (errorTitle) errorTitle.textContent = 'Flash not available';
+                    if (errorDesc) errorDesc.textContent = 'This camera does not support torch. Try the rear camera or use brighter light.';
+                    errorModal.classList.remove('hidden');
+                }
+            }
         }
     }
 
@@ -782,6 +785,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scanTrigger) {
         scanTrigger.addEventListener('click', async () => {
             captureFrame();
+            
+            if (isFlashOn) {
+                toggleFlash(true);
+            }
 
             setScanningKey('analyzing');
             if (scanningLine) scanningLine.style.display = 'block';
@@ -887,38 +894,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
 
-            // Submit to Python Backend, but handle fallback to local TF.js if unreachable
-            let pb;
-            try {
-                const res = await fetch('/predict', {
-                    method: 'POST',
-                    body: formData
-                });
+            const res = await fetch('https://my-plant-owtx.onrender.com/predict', {
+                method: 'POST',
+                body: formData
+            });
 
-                if (!res.ok) {
-                    const errJson = await res.json().catch(() => ({}));
-                    throw new Error(errJson.error || res.statusText);
-                }
-                pb = await res.json();
-                
-                if (pb.status === 'REJECTED') {
-                    throw new Error(pb.error || t('err_no_plant'));
-                }
-            } catch (backendError) {
-                console.warn('Backend unavailable, falling back to 100% Offline Local Model:', backendError);
-                
-                // --- 100% OFFLINE FALLBACK ---
-                try {
-                    const localResult = await predictWithTensorFlow();
-                    pb = {
-                        label: localResult.rawName,
-                        confidence: localResult.probability,
-                        status: "Local Offline"
-                    };
-                } catch (localError) {
-                    console.error('Both backend and local model failed:', localError);
-                    throw backendError; // Throw the original backend error if local also fails
-                }
+            if (!res.ok) {
+                const errJson = await res.json().catch(() => ({}));
+                throw new Error(errJson.error || res.statusText);
+            }
+
+            const pb = await res.json();
+            
+            // Handle explicit REJECTED status from backend validation
+            if (pb.status === 'REJECTED') {
+                throw new Error(pb.error || t('err_no_plant'));
             }
             
             let parsedConfidence = 0.95;
@@ -944,7 +934,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     unsupported: false
                 }
             });
-            data.source = pb.status === "Local Offline" ? 'tfjs_local_offline' : 'my_plant_offline_cnn';
+            data.source = 'my_plant_offline_cnn';
             
             if (ptValue !== "Unknown") {
                 data.name = localizedCropName(ptValue);

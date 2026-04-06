@@ -693,36 +693,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (flashBtn) flashBtn.classList.remove('flash-active');
     }
 
-    async function toggleFlash() {
+    async function toggleFlash(forceOff = false) {
         if (!cameraStream) return;
 
         let track = cameraStream.getVideoTracks()[0];
-        let capabilities = track.getCapabilities();
+        let capabilities = typeof track.getCapabilities === 'function' ? track.getCapabilities() : {};
 
-        if (!capabilities.torch) {
+        if (forceOff && !isFlashOn) return;
+
+        if (!capabilities.torch && !forceOff) {
             try {
+                // Try switching to ideal environment camera first
                 const rear = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: { exact: 'environment' } },
+                    video: { facingMode: { ideal: 'environment' } },
                     audio: false
                 });
                 stopCamera();
                 cameraStream = rear;
                 if (cameraVideo) cameraVideo.srcObject = cameraStream;
                 track = cameraStream.getVideoTracks()[0];
-                capabilities = track.getCapabilities();
+                capabilities = typeof track.getCapabilities === 'function' ? track.getCapabilities() : {};
             } catch (e) {}
-            if (!capabilities.torch) {
-                if (errorModal) {
-                    if (errorTitle) errorTitle.textContent = 'Flash not available';
-                    if (errorDesc) errorDesc.textContent = 'This camera does not support torch. Try the rear camera or use brighter light.';
-                    errorModal.classList.remove('hidden');
-                }
-                return;
-            }
         }
 
         try {
-            isFlashOn = !isFlashOn;
+            isFlashOn = forceOff ? false : !isFlashOn;
             await track.applyConstraints({
                 advanced: [{ torch: isFlashOn }]
             });
@@ -734,6 +729,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (err) {
             console.error('Error toggling flash:', err);
+            isFlashOn = forceOff ? false : !isFlashOn; // Revert state
+            const flashBtn = document.getElementById('flash-trigger');
+            if (flashBtn) flashBtn.classList.remove('flash-active');
+
+            if (!forceOff) {
+                if (errorModal) {
+                    if (errorTitle) errorTitle.textContent = 'Flash not available';
+                    if (errorDesc) errorDesc.textContent = 'This camera does not support torch. Try the rear camera or use brighter light.';
+                    errorModal.classList.remove('hidden');
+                }
+            }
         }
     }
 
@@ -779,6 +785,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scanTrigger) {
         scanTrigger.addEventListener('click', async () => {
             captureFrame();
+            
+            if (isFlashOn) {
+                toggleFlash(true);
+            }
 
             setScanningKey('analyzing');
             if (scanningLine) scanningLine.style.display = 'block';
@@ -884,7 +894,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
 
-            const res = await fetch('/api/predict', {
+            const res = await fetch('https://my-plant-owtx.onrender.com/predict', {
                 method: 'POST',
                 body: formData
             });
