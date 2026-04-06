@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadClassIndices() {
         if (classIndices) return classIndices;
         const res = await fetch('class_indices.json');
-        if (!res.ok) throw new Error(t('err_analysis_body'));
+        if (!res.ok && res.status !== 0) throw new Error(t('err_analysis_body'));
         classIndices = await res.json();
         return classIndices;
     }
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (plantDocLocaleJson) return plantDocLocaleJson;
         try {
             const res = await fetch('dataset/plantdoc/plantdoc_locale.json');
-            if (!res.ok) return (plantDocLocaleJson = {});
+            if (!res.ok && res.status !== 0) return (plantDocLocaleJson = {});
             plantDocLocaleJson = await res.json();
         } catch {
             plantDocLocaleJson = {};
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch('dataset/plantdoc/plantdoc_village_map.json'),
             fetch('dataset/plantdoc/dataset_manifest.json')
         ]);
-        if (!clsRes.ok || !mapRes.ok || !manRes.ok) {
+        if ((!clsRes.ok && clsRes.status !== 0) || (!mapRes.ok && mapRes.status !== 0) || (!manRes.ok && manRes.status !== 0)) {
             throw new Error('Could not load PlantDoc dataset files');
         }
         const clsJson = await clsRes.json();
@@ -697,32 +697,43 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!cameraStream) return;
 
         let track = cameraStream.getVideoTracks()[0];
-        let capabilities = typeof track.getCapabilities === 'function' ? track.getCapabilities() : {};
+        let capabilities = track.getCapabilities();
 
-        // If trying to turn on flash but torch capability isn't reported, try switching to ideal environment camera first
-        if (!isFlashOn && !capabilities.torch) {
+        if (!capabilities.torch) {
             try {
                 const rear = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: { ideal: 'environment' } },
+                    video: { facingMode: { exact: 'environment' } },
                     audio: false
                 });
                 stopCamera();
                 cameraStream = rear;
                 if (cameraVideo) cameraVideo.srcObject = cameraStream;
-            } catch (e) {
-                console.warn('Failed to switch to environment camera for flash:', e);
+                track = cameraStream.getVideoTracks()[0];
+                capabilities = track.getCapabilities();
+            } catch (e) {}
+            if (!capabilities.torch) {
+                if (errorModal) {
+                    if (errorTitle) errorTitle.textContent = 'Flash not available';
+                    if (errorDesc) errorDesc.textContent = 'This camera does not support torch. Try the rear camera or use brighter light.';
+                    errorModal.classList.remove('hidden');
+                }
+                return;
             }
         }
 
-        // Just toggle the state and UI, we will apply the torch constraint during capture
-        isFlashOn = !isFlashOn;
-        const flashBtn = document.getElementById('flash-trigger');
-        if (flashBtn) {
-            if (isFlashOn) {
-                flashBtn.classList.add('flash-active');
-            } else {
-                flashBtn.classList.remove('flash-active');
+        try {
+            isFlashOn = !isFlashOn;
+            await track.applyConstraints({
+                advanced: [{ torch: isFlashOn }]
+            });
+
+            const flashBtn = document.getElementById('flash-trigger');
+            if (flashBtn) {
+                if (isFlashOn) flashBtn.classList.add('flash-active');
+                else flashBtn.classList.remove('flash-active');
             }
+        } catch (err) {
+            console.error('Error toggling flash:', err);
         }
     }
 
@@ -767,25 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (scanTrigger) {
         scanTrigger.addEventListener('click', async () => {
-            if (isFlashOn && cameraStream) {
-                try {
-                    const track = cameraStream.getVideoTracks()[0];
-                    await track.applyConstraints({ advanced: [{ torch: true }] });
-                    // Wait for camera auto-exposure to adjust to the new light
-                    await new Promise(r => setTimeout(r, 600));
-                } catch (e) {
-                    console.warn('Flash during capture failed:', e);
-                }
-            }
-
             captureFrame();
-
-            if (isFlashOn && cameraStream) {
-                try {
-                    const track = cameraStream.getVideoTracks()[0];
-                    await track.applyConstraints({ advanced: [{ torch: false }] });
-                } catch (e) {}
-            }
 
             setScanningKey('analyzing');
             if (scanningLine) scanningLine.style.display = 'block';
@@ -883,7 +876,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const plantTypeSelect = document.getElementById('plantType');
             const ptValue = plantTypeSelect ? plantTypeSelect.value : "Unknown";
 
-            // Try submitting to the online backend API, but fall back to offline TF.js model if there's no internet or error.
+            // Submit strictly to MY_PLANT native Python TF OFFLINE backend
             const formData = new FormData();
             formData.append('image', blobOrFile, 'image.jpg');
             formData.append('plantType', ptValue);
@@ -891,47 +884,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
 
-            let pb;
+            let pb = null;
             try {
-                // Note: The comment originally said 'strictly to native Python TF OFFLINE backend', but it uses the remote render URL!
-                const res = await fetch('https://my-plant-owtx.onrender.com/predict', {
+                const res = await fetch('http://192.168.100.40:5000/predict', {
                     method: 'POST',
                     body: formData
                 });
-
                 if (!res.ok) {
-                    const errJson = await res.json().catch(() => ({}));
-                    if (errJson.status === 'REJECTED' || res.status === 400) {
-                        throw new Error(errJson.error || errJson.reasoning || t('err_no_plant'));
-                    }
-                    throw new Error('Backend server error');
+                    throw new Error("Backend not available");
                 }
-
                 pb = await res.json();
-                
-                // Handle explicit REJECTED status from backend validation
-                if (pb.status === 'REJECTED') {
-                    throw new Error(pb.error || pb.reasoning || t('err_no_plant'));
-                }
             } catch (err) {
-                // Bubble up explicit rejection limits (No plant detected)
-                if (err.message && (err.message.includes('No plant') || err.message.includes(t('err_no_plant')) || err.message.length > 30)) {
-                    // Usually validation errors have longer text explaining it.
-                    // But if it's "Failed to fetch", it's network!
-                    if (err.message !== 'Failed to fetch' && err.message !== 'Load failed' && !err.message.includes('Backend server error')) {
-                         throw err;
-                    }
-                }
-                
-                console.info("Backend fetch failed, activating 100% OFFLINE TF.js model fallback:", err.message);
-                
-                // OFFLINE FALLBACK using pure browser TensorFlow.js
-                // Uses the `captureCanvas` which is already populated.
-                const fallbackResult = await predictWithTensorFlow();
+                console.log("Backend offline, falling back to local TensorFlow.js inference...");
+                const tfResult = await predictWithTensorFlow();
                 pb = {
-                    label: fallbackResult.rawName,
-                    confidence: fallbackResult.probability
+                    status: 'SUCCESS',
+                    label: tfResult.rawName,
+                    confidence: tfResult.probability
                 };
+            }
+            
+            // Handle explicit REJECTED status from backend validation
+            if (pb.status === 'REJECTED') {
+                throw new Error(pb.error || t('err_no_plant'));
             }
             
             let parsedConfidence = 0.95;
