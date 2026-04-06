@@ -8,6 +8,7 @@
     const STRINGS = {
         en: {
             app_title: 'MY Plant',
+            app_logo_html: '<span>MY</span> Plant',
             language_label: 'Language',
             welcome_to: 'Welcome to',
             intro_2: 'Get started with MY plant by exploring|how easy it is to find plant|disease health solutions',
@@ -138,6 +139,7 @@
         },
         am: {
             app_title: 'የእኔ ተክል',
+            app_logo_html: '<span>የእኔ</span> ተክል',
             language_label: 'ቋንቋ',
             welcome_to: 'እንኳን ደህና መጡ ወደ',
             intro_2: 'ከ የእኔ ተክል ጋር በመጀመር|የእፅዋት በሽታ ጤና መፍትሄዎችን ማግኘት|ምን ያህል ቀላል እንደሆነ ያስሱ',
@@ -268,6 +270,7 @@
         },
         om: {
             app_title: 'biqiltuu koo',
+            app_logo_html: '<span>biqiltuu</span> koo',
             language_label: 'Afaan',
             welcome_to: 'Baga nagaan dhufte',
             intro_2: 'biqiltuu koo waliin jalqabaa|dhimma dhukkubsaa ijoo biqiltuu|barbaachisummaa argachuuf qoradhu',
@@ -398,6 +401,7 @@
         },
         ar: {
             app_title: 'نبات بلدي',
+            app_logo_html: '<span>نبات</span> بلدي',
             language_label: 'اللغة',
             welcome_to: 'مرحبًا بك في',
             intro_2: 'ابدأ مع نبات بلدي|واكتشف مدى سهولة إيجاد|حلول صحة نباتاتك',
