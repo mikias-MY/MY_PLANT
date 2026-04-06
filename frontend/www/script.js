@@ -883,7 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const plantTypeSelect = document.getElementById('plantType');
             const ptValue = plantTypeSelect ? plantTypeSelect.value : "Unknown";
 
-            // Submit strictly to MY_PLANT native Python TF OFFLINE backend
+            // Try submitting to the online backend API, but fall back to offline TF.js model if there's no internet or error.
             const formData = new FormData();
             formData.append('image', blobOrFile, 'image.jpg');
             formData.append('plantType', ptValue);
@@ -891,21 +891,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 formData.append('language', window.MY_PLANT_I18N.getLang());
             }
 
-            const res = await fetch('https://my-plant-owtx.onrender.com/predict', {
-                method: 'POST',
-                body: formData
-            });
+            let pb;
+            try {
+                // Note: The comment originally said 'strictly to native Python TF OFFLINE backend', but it uses the remote render URL!
+                const res = await fetch('https://my-plant-owtx.onrender.com/predict', {
+                    method: 'POST',
+                    body: formData
+                });
 
-            if (!res.ok) {
-                const errJson = await res.json().catch(() => ({}));
-                throw new Error(errJson.error || res.statusText);
-            }
+                if (!res.ok) {
+                    const errJson = await res.json().catch(() => ({}));
+                    if (errJson.status === 'REJECTED' || res.status === 400) {
+                        throw new Error(errJson.error || errJson.reasoning || t('err_no_plant'));
+                    }
+                    throw new Error('Backend server error');
+                }
 
-            const pb = await res.json();
-            
-            // Handle explicit REJECTED status from backend validation
-            if (pb.status === 'REJECTED') {
-                throw new Error(pb.error || t('err_no_plant'));
+                pb = await res.json();
+                
+                // Handle explicit REJECTED status from backend validation
+                if (pb.status === 'REJECTED') {
+                    throw new Error(pb.error || pb.reasoning || t('err_no_plant'));
+                }
+            } catch (err) {
+                // Bubble up explicit rejection limits (No plant detected)
+                if (err.message && (err.message.includes('No plant') || err.message.includes(t('err_no_plant')) || err.message.length > 30)) {
+                    // Usually validation errors have longer text explaining it.
+                    // But if it's "Failed to fetch", it's network!
+                    if (err.message !== 'Failed to fetch' && err.message !== 'Load failed' && !err.message.includes('Backend server error')) {
+                         throw err;
+                    }
+                }
+                
+                console.info("Backend fetch failed, activating 100% OFFLINE TF.js model fallback:", err.message);
+                
+                // OFFLINE FALLBACK using pure browser TensorFlow.js
+                // Uses the `captureCanvas` which is already populated.
+                const fallbackResult = await predictWithTensorFlow();
+                pb = {
+                    label: fallbackResult.rawName,
+                    confidence: fallbackResult.probability
+                };
             }
             
             let parsedConfidence = 0.95;
