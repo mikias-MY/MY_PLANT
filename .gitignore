@@ -22,3 +22,7 @@ build/
 *.tmp
 temp/
 /tmp/
+*.jpg
+*.png
+WheatLeafRust/
+datasets/
