@@ -19,7 +19,7 @@ class PlantValidator:
     def __init__(self):
         self.model_path = os.path.join(os.path.dirname(__file__), 'efficientdet_lite0.tflite')
         self.detector = None
-        if MEDIAPIPE_AVAILABLE and os.path.exists(self.model_path) and os.environ.get('DISABLE_MEDIAPIPE') != '1':
+        if MEDIAPIPE_AVAILABLE and os.path.exists(self.model_path):
             try:
                 base_options = python.BaseOptions(model_asset_path=self.model_path)
                 options = vision.ObjectDetectorOptions(base_options=base_options, score_threshold=0.3)
@@ -56,10 +56,14 @@ class PlantValidator:
                 ]
                 
                 found_plant = False
+                has_non_plant = False
+                non_plant_keywords = ['person', 'dog', 'cat', 'car', 'bus', 'truck', 'umbrella', 'bag', 'bottle', 'laptop', 'chair', 'couch', 'tv', 'bed']
                 for detection in detection_result.detections:
                     for category in detection.categories:
                         label = category.category_name.lower()
                         print(f"Detected: {label} ({category.score:.2f})")
+                        if any(kw in label for kw in non_plant_keywords):
+                            has_non_plant = True
                         if any(kw in label for kw in plant_keywords):
                             found_plant = True
                             break
@@ -68,10 +72,14 @@ class PlantValidator:
                 if found_plant:
                     return True
                 else:
+                    if has_non_plant:
+                        # Explicitly reject humans/non-plants without doing heuristic checks
+                        raise NotAPlantError("not a plant or plant leaf")
+                    
                     # If MediaPipe runs but finds nothing, we check heuristics before failing
                     if self._heuristic_check(image_bytes):
                         return True
-                    raise NotAPlantError("Error: No plant detected in the image.")
+                    raise NotAPlantError("not a plant or plant leaf")
                     
             except NotAPlantError:
                 raise
@@ -82,7 +90,7 @@ class PlantValidator:
         if self._heuristic_check(image_bytes):
             return True
             
-        raise NotAPlantError("Error: No plant detected in the image.")
+        raise NotAPlantError("not a plant or plant leaf")
 
     def _heuristic_check(self, image_bytes):
         """
@@ -96,15 +104,15 @@ class PlantValidator:
             pixels = list(img_rgb.getdata())
             greenish_pixels = 0
             for r, g, b in pixels:
-                # Botanical green usually has G > R and G > B
-                if g > r * 1.1 and g > b * 1.1:
+                # Accept green OR yellow/brown/sick leaf colors
+                if (g > r * 1.05 and g > b * 1.05) or (r > b * 1.1 and g > b * 1.1 and r > g * 0.7):
                     greenish_pixels += 1
             
             green_ratio = greenish_pixels / len(pixels)
-            print(f"Heuristic Green Ratio: {green_ratio:.2f}")
+            print(f"Heuristic Leaf-Color Ratio: {green_ratio:.2f}")
             
-            # If more than 10% of pixels are green, assume it's a plant for now
-            return green_ratio > 0.10
+            
+            return green_ratio > 0.05
         except Exception as e:
             print(f"Heuristic check failed: {e}")
-            return True # If even heuristic fails, allow it to pass to avoid blocking user
+            return True 
